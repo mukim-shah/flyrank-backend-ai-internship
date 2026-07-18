@@ -19,6 +19,7 @@
   "author": "Mukim Shah",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.6",
     "express": "^5.2.1",
     "swagger-ui-express": "^5.0.1"
   }

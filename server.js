@@ -6,8 +6,10 @@ const PORT = process.env.PORT || 3000;
 // Import Week Routes
 const week01Routes = require("./week-01/routes");
 const week02Routes = require("./week-02/routes");
+const cors = require("cors");
 
 app.use(express.json());
+app.use(cors());
 
 // Home Route
 app.get("/", (req, res) => {

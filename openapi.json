@@ -6,11 +6,15 @@
     "description": "RESTful CRUD Task Management API built using Node.js, Express.js and OpenAPI 3.0. Includes interactive Swagger documentation for testing API endpoints."
   },
   "servers": [
-    {
-      "url": "http://localhost:3000/week-02",
-      "description": "Week 02 Task Management API"
-    }
-  ],
+  {
+    "url": "https://flyrank-backend-ai-internship.onrender.com/week-02",
+    "description": "Production Server"
+  },
+  {
+    "url": "http://localhost:3000/week-02",
+    "description": "Local Development"
+  }
+],
   "tags": [
     {
       "name": "Tasks",
