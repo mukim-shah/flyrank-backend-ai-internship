@@ -7,8 +7,8 @@
   },
   "servers": [
     {
-      "url": "http://localhost:3000",
-      "description": "Local Development Server"
+      "url": "http://localhost:3000/week-02",
+      "description": "Week 02 Task Management API"
     }
   ],
   "tags": [

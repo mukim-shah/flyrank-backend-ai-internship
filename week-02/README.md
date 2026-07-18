@@ -1,4 +1,4 @@
-# 🚀 Week 02 - Express CRUD Task Management API
+# 🚀 Week 02 – Express CRUD Task Management API
 
 ![Node.js](https://img.shields.io/badge/Node.js-5FA04E?style=for-the-badge&logo=node.js&logoColor=white)
 ![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
@@ -6,40 +6,26 @@
 ![OpenAPI](https://img.shields.io/badge/OpenAPI-6BA539?style=for-the-badge)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
-## 📖 Project Overview
+---
+
+# 📖 Project Overview
 
 This project was developed as part of the **FlyRank Backend AI Engineering Internship – Week 02 Assignment**.
 
 The objective of this assignment was to build a **RESTful Task Management API** using **Node.js** and **Express.js** while following backend development best practices.
 
-During this assignment, the following features were implemented:
-
-- 🔹 Built a RESTful API using Express.js
-- 🔹 Implemented complete CRUD (Create, Read, Update, Delete) operations
-- 🔹 Added request body validation for POST and PUT endpoints
-- 🔹 Implemented proper HTTP status codes (200, 201, 400, 404)
-- 🔹 Returned consistent JSON responses for every endpoint
-- 🔹 Added error handling for invalid requests and missing resources
-- 🔹 Integrated Swagger UI using an OpenAPI 3.0 specification
-- 🔹 Documented all API endpoints with request and response examples
-- 🔹 Captured API testing screenshots using Postman
-- 🔹 Organized the project with clean folder structure and documentation
-
-This project demonstrates the fundamentals of backend API development, REST architecture, API documentation, request validation, and clean Express.js application structure.
-
----
-
-# ✨ Features
+## ✨ Features
 
 - ✅ RESTful API using Express.js
-- ✅ CRUD Operations
-- ✅ In-Memory Task Storage
+- ✅ Complete CRUD Operations
 - ✅ Request Validation
 - ✅ Proper HTTP Status Codes
-- ✅ JSON Responses
+- ✅ Consistent JSON Responses
 - ✅ Error Handling
-- ✅ Swagger API Documentation
-- ✅ Clean Project Structure
+- ✅ Swagger UI Documentation
+- ✅ OpenAPI 3.0 Specification
+- ✅ Clean Folder Structure
+- ✅ Modular Express Router Architecture
 
 ---
 
@@ -73,56 +59,49 @@ week-02/
 │   ├── validation-error.png
 │   └── task-not-found.png
 │
-├── server.js
+├── server.js      # Standalone Express server
+├── routes.js      # Express Router (used in multi-week architecture)
 ├── README.md
-│
-├── openapi.json
-├── package.json
-└── package-lock.json
 ```
 
 ---
 
-# ⚙️ Installation
+# 🚀 Running the Project
 
-## Clone Repository
-
-```bash
-git clone https://github.com/mukim-shah/flyrank-backend-ai-internship.git
-```
-
-Move into project
-
-```bash
-cd flyrank-backend-ai-internship
-```
-
-Install dependencies
+## Option 1 – Run Week 02 Independently
 
 ```bash
 npm install
+npm run week2
 ```
 
-Run the application
+Swagger:
+
+```text
+http://localhost:3000/docs
+```
+
+---
+
+## Option 2 – Run as Part of the Multi-Week Project
+
+From the project root:
 
 ```bash
+npm install
 npm start
 ```
 
----
+Application:
 
-# 🌐 Server
-
-```
-http://localhost:3000
+```text
+http://localhost:3000/week-02
 ```
 
----
+Swagger:
 
-# 📄 Swagger Documentation
-
-```
-http://localhost:3000/docs
+```text
+http://localhost:3000/week-02/docs
 ```
 
 ---
@@ -139,6 +118,21 @@ http://localhost:3000/docs
 | PUT | `/tasks/:id` | Update Existing Task |
 | DELETE | `/tasks/:id` | Delete Task |
 | GET | `/docs` | Swagger Documentation |
+
+> **Note:**  
+> When running as part of the multi-week architecture, all endpoints are automatically prefixed with:
+
+```text
+/week-02
+```
+
+Example:
+
+```text
+GET /week-02/tasks
+POST /week-02/tasks
+GET /week-02/docs
+```
 
 ---
 
@@ -177,11 +171,7 @@ POST /tasks
 
 # ❌ Validation Error
 
-**Status Code**
-
-```
-400 Bad Request
-```
+**400 Bad Request**
 
 ```json
 {
@@ -194,11 +184,7 @@ POST /tasks
 
 # ❌ Resource Not Found
 
-**Status Code**
-
-```
-404 Not Found
-```
+**404 Not Found**
 
 ```json
 {
@@ -287,6 +273,14 @@ POST /tasks
 
 ---
 
+# 📝 Notes
+
+- **server.js** is the standalone version of the Week 02 assignment.
+- **routes.js** exports an Express Router and is used when combining multiple internship weeks into a single Express application.
+- The repository now supports running multiple weekly assignments from one Express server while keeping each week's standalone implementation available.
+
+---
+
 # 🎯 Learning Outcomes
 
 During this assignment I learned:
@@ -298,7 +292,8 @@ During this assignment I learned:
 - API Error Handling
 - Creating OpenAPI Documentation
 - Integrating Swagger UI
-- Writing Clean Backend Code
+- Using Express Router
+- Building Modular Express Applications
 - Organizing Node.js Projects
 
 ---
@@ -307,7 +302,7 @@ During this assignment I learned:
 
 **Mukim Shah**
 
-Backend AI Engineering Intern
+Backend AI Engineering Intern – FlyRank AI
 
 GitHub: https://github.com/mukim-shah
 
