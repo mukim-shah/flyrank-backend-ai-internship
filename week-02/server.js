@@ -86,7 +86,13 @@ app.get("/tasks/:id", (req, res) => {
 // POST Endpoint
 app.post("/tasks", (req, res) => {
 
-    
+    if (!req.body.title || typeof req.body.done !== "boolean") {
+        return res.status(400).json({
+            success: false,
+            message: "Title and done fields are required."
+        });
+    }
+
     const newTask = {
         id: tasks.length + 1,
         title: req.body.title,
@@ -116,7 +122,12 @@ app.put("/tasks/:id", (req, res) => {
         });
     }
 
-   
+    if (!req.body.title || typeof req.body.done !== "boolean") {
+        return res.status(400).json({
+            success: false,
+            message: "Title and done fields are required."
+        });
+    }
 
     task.title = req.body.title;
     task.done = req.body.done;
