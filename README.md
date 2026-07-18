@@ -127,7 +127,7 @@ Available Routes
 Week 02 Swagger
 
 ```text
-https://your-render-url.onrender.com/week-02/docs
+ https://flyrank-backend-ai-internship.onrender.com/week-02/docs
 ```
 
 ---
