@@ -158,26 +158,59 @@ Week 02 Swagger
 
 # 📖 Weekly Assignments
 
-## ✅ Week 01
+## ✅ Week 01 — Simple Express Backend
+
+**Objective:** Build the smallest possible backend server using Express.js with two JSON API endpoints.
+
+### What I Built
+
+- Developed my first Express.js backend application
+- Created JSON API endpoints (`/` and `/about`)
+- Learned Express routing and request handling
+- Returned structured JSON responses
+- Organized a basic Node.js project structure
+- Used npm scripts to run the application
+- Practiced Git & GitHub workflow for version control
+
+### Key Skills
 
 - Express Fundamentals
 - JSON APIs
 - Express Routing
-- Backend Basics
+- Node.js Basics
+- Git & GitHub
 
 ---
 
-## ✅ Week 02
+## ✅ Week 02 — Express CRUD Task Management API
 
-- REST API
+**Objective:** Build a RESTful Task Management API with complete CRUD functionality and professional API documentation.
+
+### What I Built
+
+- Developed a complete RESTful CRUD API using Express.js
+- Implemented Create, Read, Update and Delete operations
+- Added request body validation for POST and PUT endpoints
+- Implemented proper HTTP status codes and consistent JSON responses
+- Added centralized error handling for invalid requests and missing resources
+- Integrated Swagger UI with an OpenAPI 3.0 specification
+- Documented every endpoint with request and response examples
+- Tested APIs using Postman
+- Refactored the project into a modular Express Router architecture
+- Created a multi-week repository structure where all assignments can run from a single Express server while still supporting standalone execution
+
+### Key Skills
+
+- REST API Development
 - CRUD Operations
-- Validation
+- Request Validation
 - Error Handling
 - Swagger UI
 - OpenAPI 3.0
 - API Documentation
 - Express Router
 - Modular Architecture
+- Backend Project Organization
 
 ---
 
