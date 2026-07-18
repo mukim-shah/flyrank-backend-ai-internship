@@ -2,10 +2,11 @@
   "name": "flyrank-backend-ai-internship",
   "version": "1.0.0",
   "description": "Assignments and projects completed during the FlyRank Backend AI Engineering Internship.",
-  "main": "week-01/server.js",
+  "main": "week-02/server.js",
   "scripts": {
+    "start": "node week-02/server.js",
     "week1": "node week-01/server.js",
-    "start": "node week-01/server.js"
+    "week2": "node week-02/server.js"
   },
   "keywords": [
     "nodejs",

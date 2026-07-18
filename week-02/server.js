@@ -1,10 +1,11 @@
 const express = require("express");
-
 const app = express();
-
-const PORT = process.env.PORT || 3000;
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("../openapi.json");
 
 app.use(express.json());
+
+const PORT = process.env.PORT || 3000;
 
 // Root Endpoint
 app.get("/", (req, res) => {
@@ -16,7 +17,8 @@ app.get("/", (req, res) => {
         endpoints: [
             "/health",
             "/tasks",
-            "/tasks/:id"
+            "/tasks/:id",
+            "/docs"
         ]
     });
 });
@@ -162,6 +164,10 @@ app.delete("/tasks/:id", (req, res) => {
     });
 });
 
+// Swagger Documentation
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+// Start Server
 app.listen(PORT, () => {
     console.log(`🚀 Server is running on http://localhost:${PORT}`);
 });
