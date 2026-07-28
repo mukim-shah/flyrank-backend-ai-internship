@@ -229,31 +229,31 @@ POST /tasks
 
 ## 🔍 SQL Query – All Tasks
 
-![All Tasks](./screenshot/09-all-tasks-query.png)
+![All Tasks](./screenshot/09-All%20Task%20Query%20%20Table.png)
 
 ---
 
 ## 🔢 SQL Query – Count Tasks
 
-![Count Tasks](./screenshot/10-count-query.png)
+![Count Tasks](./screenshot/10-completed-tasks-query.png)
 
 ---
 
 ## ✅ SQL Query – Completed Tasks
 
-![Completed Tasks](./screenshot/11-completed-tasks-query.png)
+![Completed Tasks](./screenshot/11-count-query.png)
 
 ---
 
 ## ✏️ SQL Query – Updated Tasks
 
-![Updated Tasks](./screenshot/12-updated-tasks-query.png)
+![Updated Tasks](./screenshot/12-Updatedtasks-query.png)
 
 ---
 
 ## 🗑️ SQL Query – Deleted Tasks
 
-![Deleted Tasks](./screenshot/13-deleted-tasks-query.png)
+![Deleted Tasks](./screenshot/13-Deleted-tasks-query.png)
 
 ---
 

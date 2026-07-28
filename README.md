@@ -2,6 +2,8 @@
 
 ![Node.js](https://img.shields.io/badge/Node.js-5FA04E?style=for-the-badge&logo=node.js&logoColor=white)
 ![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
+![better--sqlite3](https://img.shields.io/badge/better--sqlite3-4A90E2?style=for-the-badge)
 ![OpenAPI](https://img.shields.io/badge/OpenAPI-6BA539?style=for-the-badge)
 ![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
@@ -59,6 +61,13 @@ flyrank-backend-ai-internship/
 │   └── screenshot/
 │
 ├── week-03/
+│   ├── database.js
+│   ├── server.js
+│   ├── routes.js
+│   ├── tasks.db
+│   ├── README.md
+│   └── screenshot/
+│
 ├── week-04/
 └── ...
 ```
@@ -76,6 +85,7 @@ Each week's assignment can run independently.
 ```bash
 npm run week1
 npm run week2
+npm run week3
 ```
 
 Architecture:
@@ -86,9 +96,9 @@ Client
    ▼
 Root server.js
    │
-   ├───────────────┐
-   ▼               ▼
-week-01/routes  week-02/routes
+   ├───────────────┬───────────────┐
+   ▼               ▼               ▼
+week-01/routes  week-02/routes  week-03/routes
 ```
 
 ---
@@ -137,11 +147,14 @@ Week 02 Swagger
 - Node.js
 - Express.js
 - JavaScript
+- SQLite
+- better-sqlite3
 - OpenAPI 3.0
 - Swagger UI
 - Git
 - GitHub
 - Postman
+- DB Browser for SQLite
 
 ---
 
@@ -151,8 +164,8 @@ Week 02 Swagger
 |------|------------|--------|
 | ✅ Week 01 | Express Backend with JSON Endpoints | Completed |
 | ✅ Week 02 | Express CRUD Task Management API | Completed |
-| ⏳ Week 03 | Coming Soon | In Progress |
-| ⏳ Week 04 | Coming Soon | Pending |
+| ✅ Week 03 | Express CRUD API with SQLite Database | Completed |
+| ⏳ Week 04 | Coming Soon | In Progress |
 
 ---
 
@@ -214,11 +227,44 @@ Week 02 Swagger
 
 ---
 
+## ✅ Week 03 — Express CRUD API with SQLite Database
+
+**Objective:** Replace the in-memory task storage from Week 02 with a persistent SQLite database while preserving the existing RESTful API structure.
+
+### What I Built
+
+- Replaced in-memory storage with SQLite
+- Integrated better-sqlite3 into the Express application
+- Automatically created the database and tasks table
+- Seeded initial sample tasks only when the database was empty
+- Implemented SQL-based CRUD operations
+- Used prepared SQL statements for database queries
+- Tested SQL queries using DB Browser for SQLite
+- Verified persistent storage across server restarts
+- Maintained the same REST API endpoints from Week 02
+
+### Key Skills
+
+- SQLite
+- better-sqlite3
+- SQL CRUD Operations
+- Database Design
+- Prepared Statements
+- Persistent Storage
+- Express + SQLite Integration
+- DB Browser for SQLite
+
+---
+
 # 🚀 Repository Highlights
 
 - RESTful API Development
 - Express.js Backend
 - CRUD Operations
+- SQL Database Integration
+- SQLite Database Integration
+- Persistent Data Storage
+- SQL Queries
 - Request Validation
 - Error Handling
 - Swagger Integration
@@ -229,7 +275,6 @@ Week 02 Swagger
 - GitHub Best Practices
 
 ---
-
 # 🎯 Learning Goals
 
 During this internship I aim to:
@@ -254,7 +299,7 @@ During this internship I aim to:
 ✅ Week 02
       │
       ▼
-⏳ Week 03
+✅ Week 03
       │
       ▼
 ⏳ Week 04
@@ -287,9 +332,10 @@ This modular approach allows multiple internship assignments to run under a sing
 
 # 🚀 Future Plans
 
-- JWT Authentication
-- MongoDB Integration
 - Environment Variables
+- JWT Authentication
+- PostgreSQL Integration
+- MongoDB Integration
 - Docker Support
 - Unit Testing
 - CI/CD Pipeline
@@ -304,16 +350,14 @@ This modular approach allows multiple internship assignments to run under a sing
 
 Backend AI Engineering Intern
 
-GitHub
-
+GitHub:
 https://github.com/mukim-shah
 
-LinkedIn
-
-(Add your LinkedIn Profile)
+LinkedIn:
+https://www.linkedin.com/in/mukim-shah-377825334/
 
 ---
 
 ## ⭐ Repository Status
 
-This repository is actively maintained and will continue to be updated throughout my **FlyRank Backend AI Engineering Internship** as I complete new assignments and backend projects.
+This repository is actively maintained and will continue to be updated throughout my **FlyRank Backend AI Engineering Internship** as I complete new assignments and backend projects.New assignments and projects will be added weekly as I progress through the internship.
