@@ -6,6 +6,8 @@ const PORT = process.env.PORT || 3000;
 // Import Week Routes
 const week01Routes = require("./week-01/routes");
 const week02Routes = require("./week-02/routes");
+const week03Routes = require("./week-03/routes");
+
 const cors = require("cors");
 
 app.use(express.json());
@@ -19,7 +21,8 @@ app.get("/", (req, res) => {
         author: "Mukim Shah",
         availableWeeks: [
             "/week-01",
-            "/week-02"
+            "/week-02",
+            "/week-03"
         ]
     });
 });
@@ -27,6 +30,7 @@ app.get("/", (req, res) => {
 // Mount Week Routes
 app.use("/week-01", week01Routes);
 app.use("/week-02", week02Routes);
+app.use("/week-03", week03Routes);
 
 // 404 Handler
 app.use((req, res) => {
