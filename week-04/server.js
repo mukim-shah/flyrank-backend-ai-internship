@@ -1,13 +1,15 @@
 const express = require("express");
 const supabase = require("./supabase/client");
 const authenticateToken = require("./middleware/authMiddleware");
-
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./openapi.json");
 
 require("dotenv").config();
 
 const app = express();
 
 app.use(express.json());
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.post("/auth/signup", async (req, res) => {
   const { email, password } = req.body;

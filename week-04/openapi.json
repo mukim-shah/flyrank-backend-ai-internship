@@ -1,0 +1,227 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "FlyRank Week 04 Auth API",
+    "description": "Authentication API with Supabase Auth, JWT bearer authentication, protected routes, and public routes.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Public",
+      "description": "Public endpoints that do not require authentication"
+    },
+    {
+      "name": "Authentication",
+      "description": "Signup, login, and logout endpoints"
+    },
+    {
+      "name": "Protected",
+      "description": "Endpoints that require a valid Supabase JWT"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {
+      "AuthCredentials": {
+        "type": "object",
+        "required": [
+          "email",
+          "password"
+        ],
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email",
+            "example": "your-email@example.com"
+          },
+          "password": {
+            "type": "string",
+            "format": "password",
+            "example": "YourStrongPassword123"
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "Public"
+        ],
+        "summary": "Check API status",
+        "responses": {
+          "200": {
+            "description": "API is running"
+          }
+        }
+      }
+    },
+    "/public/info": {
+      "get": {
+        "tags": [
+          "Public"
+        ],
+        "summary": "Get public information",
+        "responses": {
+          "200": {
+            "description": "Public information returned successfully",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Welcome stranger! This info is public."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/signup": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Create a new user account",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthCredentials"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "User account created successfully"
+          },
+          "400": {
+            "description": "Invalid request or Supabase signup error"
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Authenticate user and receive JWT tokens",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthCredentials"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Login successful and JWT tokens returned",
+            "content": {
+              "application/json": {
+                "example": {
+                  "access_token": "YOUR_ACCESS_TOKEN",
+                  "refresh_token": "YOUR_REFRESH_TOKEN"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Email and password are required"
+          },
+          "401": {
+            "description": "Invalid login credentials"
+          }
+        }
+      }
+    },
+    "/auth/logout": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Log out authenticated user",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Logout successful"
+          },
+          "401": {
+            "description": "Access token required or authentication error"
+          }
+        }
+      }
+    },
+    "/protected/profile": {
+      "get": {
+        "tags": [
+          "Protected"
+        ],
+        "summary": "Get authenticated user profile",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Authenticated user profile",
+            "content": {
+              "application/json": {
+                "example": {
+                  "id": "user-uuid",
+                  "email": "your-email@example.com",
+                  "created_at": "2026-09-26T07:00:00.000Z"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing, invalid, or expired access token"
+          }
+        }
+      }
+    },
+    "/protected/dashboard": {
+      "get": {
+        "tags": [
+          "Protected"
+        ],
+        "summary": "Access protected dashboard",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Protected dashboard returned successfully"
+          },
+          "401": {
+            "description": "Missing, invalid, or expired access token"
+          }
+        }
+      }
+    }
+  }
+}
