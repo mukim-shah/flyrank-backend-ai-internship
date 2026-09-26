@@ -166,8 +166,9 @@ week-04/
 │   └── client.js
 │
 ├── screenshots/
-│   ├── 01-stage2-public-info.png
-│   ├── 02-stage2-protected-profile-token.png
+│   ├── 01-stage1-login-signup.png
+│   ├── 01-stage1-login-token.png
+│   ├── stage-2-protected-profile-token.png
 │   ├── 03-stage3-valid-token-profile.png
 │   ├── 04-stage3-invalid-token-profile.png
 │   ├── 05-stage4-middleware-valid-profile.png
@@ -546,71 +547,79 @@ HTTP status:
 
 # 📸 Project Evidence
 
-The project includes screenshots covering the major authentication stages.
-
-## 🌐 Public Endpoint
-
-![Public Endpoint](screenshots/01-stage2-public-info.png)
+The project includes screenshots covering the major authentication stages, from user login and token generation to protected routes, middleware validation, logout, dashboard protection, and Swagger authentication testing.
 
 ---
 
-## 🔐 Protected Profile with Token
+## 🔐 Stage 1 — Login & Signup
 
-![Protected Profile](screenshots/02-stage2-protected-profile-token.png)
-
----
-
-## ✅ Valid JWT Verification
-
-![Valid JWT](screenshots/03-stage3-valid-token-profile.png)
+![Login & Signup](screenshots/01-stage1-login-signup.png)
 
 ---
 
-## ❌ Invalid JWT Verification
+## 🎟️ Stage 1 — Login Token
 
-![Invalid JWT](screenshots/04-stage3-invalid-token-profile.png)
+![Login Token](screenshots/01-stage1-login-token.png)
 
 ---
 
-## 🛡️ Authentication Middleware
+## 🔒 Stage 2 — Protected Profile with Token
+
+![Protected Profile with Token](screenshots/stage-2-protected-profile-token.png)
+
+---
+
+## ✅ Stage 3 — Valid JWT Verification
+
+![Valid JWT Verification](screenshots/03-stage3-valid-token-profile.png)
+
+---
+
+## ❌ Stage 3 — Invalid JWT Verification
+
+![Invalid JWT Verification](screenshots/04-stage3-invalid-token-profile.png)
+
+---
+
+## 🛡️ Stage 4 — Authentication Middleware
 
 ![Authentication Middleware](screenshots/05-stage4-middleware-valid-profile.png)
 
 ---
 
-## 🚫 Missing Token
+## 🚫 Stage 4 — Protected Route Without Token
 
-![Missing Token](screenshots/06-stage4-middleware-no-token.png)
+![Protected Route Without Token](screenshots/06-stage4-middleware-no-token.png)
 
 ---
 
-## 🚪 Logout
+## 🚪 Stage 4 — Logout
 
 ![Logout](screenshots/07-stage4-logout-success.png)
 
 ---
 
-## 📊 Protected Dashboard
+## 📊 Stage 4 — Protected Dashboard
 
 ![Protected Dashboard](screenshots/08-stage4-protected-dashboard.png)
 
 ---
 
-## 🚫 Dashboard Without Token
+## 🚫 Stage 4 — Dashboard Without Token
 
 ![Dashboard Without Token](screenshots/09-stage4-dashboard-no-token.png)
 
 ---
 
-## 📚 Swagger Protected Profile
+## 📚 Stage 5 — Swagger Protected Profile
 
 ![Swagger Protected Profile](screenshots/10-stage5-swagger-protected-profile.png)
 
 ---
 
-## 🔒 Swagger Unauthorized Request
+## 🔒 Stage 5 — Swagger Unauthorized Request
 
-![Swagger Unauthorized](screenshots/11-stage5-swagger-unauthorized-profile.png)
+![Swagger Unauthorized Request](screenshots/11-stage5-swagger-unauthorized-profile.png)
 
 ---
 
