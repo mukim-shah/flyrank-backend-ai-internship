@@ -1,5 +1,8 @@
 const express = require("express");
 const supabase = require("./supabase/client");
+const authenticateToken = require("./middleware/authMiddleware");
+
+
 require("dotenv").config();
 
 const app = express();
@@ -70,35 +73,37 @@ app.get("/public/info", (req, res) => {
 });
 
 //authicate 
-app.get("/protected/profile", async (req, res) => {
-  const authHeader = req.headers.authorization;
-
-  if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    return res.status(401).json({
-      error: "Access token required",
-    });
-  }
-
-  const token = authHeader.split(" ")[1];
-
-  if (!token) {
-    return res.status(401).json({
-      error: "Access token required",
-    });
-  }
-
-  const { data, error } = await supabase.auth.getUser(token);
-
-  if (error || !data.user) {
-    return res.status(401).json({
-      error: "Invalid or expired token",
-    });
-  }
-
+app.get("/protected/profile", authenticateToken, (req, res) => {
   return res.status(200).json({
-    id: data.user.id,
-    email: data.user.email,
-    created_at: data.user.created_at,
+    id: req.user.id,
+    email: req.user.email,
+    created_at: req.user.created_at,
+  });
+});
+
+//authenticate Logout Route
+app.post("/auth/logout", authenticateToken, async (req, res) => {
+  const { error } = await supabase.auth.signOut({
+    scope: "local",
+  });
+
+  if (error) {
+    return res.status(401).json({
+      error: error.message,
+    });
+  }
+
+  return res.status(204).send();
+});
+
+// Dashboard protected route
+app.get("/protected/dashboard", authenticateToken, (req, res) => {
+  return res.status(200).json({
+    message: "Welcome to your protected dashboard",
+    user: {
+      id: req.user.id,
+      email: req.user.email,
+    },
   });
 });
 
