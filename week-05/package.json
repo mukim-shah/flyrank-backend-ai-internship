@@ -1,0 +1,12 @@
+{
+  "name": "week-05",
+  "version": "1.0.0",
+  "description": "**FlyRank AI Internship — Backend Track**  \r **Week 05 — Assignment A9: The Polite Scraper**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
