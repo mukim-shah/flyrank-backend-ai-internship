@@ -1,11 +1,27 @@
 const fs = require("fs/promises");
 const path = require("path");
 const cheerio = require("cheerio");
+const { z } = require("zod");
 
 const START_URL = "https://books.toscrape.com/";
 
 const CACHE_DIR = path.join(__dirname, "..", "cache");
 const OUTPUT_DIR = path.join(__dirname, "..", "output");
+
+const RAW_OUTPUT_FILE = path.join(
+    OUTPUT_DIR,
+    "raw-books.json"
+);
+
+const BOOKS_OUTPUT_FILE = path.join(
+    OUTPUT_DIR,
+    "books.json"
+);
+
+const ERRORS_OUTPUT_FILE = path.join(
+    OUTPUT_DIR,
+    "errors.json"
+);
 
 const USER_AGENT =
     "FlyRankInternship-A9/1.0 (+https://github.com/mukim-shah/flyrank-backend-ai-internship)";
@@ -45,7 +61,10 @@ function getDetailCacheFile(index) {
 
 async function fetchPage(url, cacheFile, label) {
     try {
-        const cachedHtml = await fs.readFile(cacheFile, "utf8");
+        const cachedHtml = await fs.readFile(
+            cacheFile,
+            "utf8"
+        );
 
         console.log(`CACHE HIT: ${label}`);
 
@@ -90,11 +109,16 @@ async function fetchPage(url, cacheFile, label) {
 
         const html = await response.text();
 
-        await fs.mkdir(path.dirname(cacheFile), {
-            recursive: true,
-        });
+        await fs.mkdir(
+            path.dirname(cacheFile),
+            { recursive: true }
+        );
 
-        await fs.writeFile(cacheFile, html, "utf8");
+        await fs.writeFile(
+            cacheFile,
+            html,
+            "utf8"
+        );
 
         console.log(
             `response_size=${Buffer.byteLength(html)} bytes`
@@ -114,17 +138,20 @@ function extractBookLinks(html, pageUrl) {
 
     const links = [];
 
-    $("article.product_pod h3 a").each((index, element) => {
-        const href = $(element).attr("href");
+    $("article.product_pod h3 a").each(
+        (index, element) => {
+            const href = $(element).attr("href");
 
-        if (!href) {
-            return;
+            if (!href) {
+                return;
+            }
+
+            const absoluteUrl =
+                new URL(href, pageUrl).href;
+
+            links.push(absoluteUrl);
         }
-
-        const absoluteUrl = new URL(href, pageUrl).href;
-
-        links.push(absoluteUrl);
-    });
+    );
 
     return links;
 }
@@ -138,7 +165,10 @@ function extractNextUrl(html, pageUrl) {
         return null;
     }
 
-    return new URL(nextHref, pageUrl).href;
+    return new URL(
+        nextHref,
+        pageUrl
+    ).href;
 }
 
 async function discoverBookUrls() {
@@ -148,20 +178,24 @@ async function discoverBookUrls() {
     let cataloguePages = 0;
 
     while (cataloguePages < 3) {
-        const pageNumber = cataloguePages + 1;
+        const pageNumber =
+            cataloguePages + 1;
 
-        const cacheFile = getCatalogueCacheFile(pageNumber);
+        const cacheFile =
+            getCatalogueCacheFile(pageNumber);
 
-        const { html } = await fetchPage(
-            currentUrl,
-            cacheFile,
-            `catalogue page ${pageNumber}`
-        );
+        const { html } =
+            await fetchPage(
+                currentUrl,
+                cacheFile,
+                `catalogue page ${pageNumber}`
+            );
 
-        const bookLinks = extractBookLinks(
-            html,
-            currentUrl
-        );
+        const bookLinks =
+            extractBookLinks(
+                html,
+                currentUrl
+            );
 
         console.log(
             `page_${pageNumber}_books=${bookLinks.length}`
@@ -182,10 +216,11 @@ async function discoverBookUrls() {
             break;
         }
 
-        const nextUrl = extractNextUrl(
-            html,
-            currentUrl
-        );
+        const nextUrl =
+            extractNextUrl(
+                html,
+                currentUrl
+            );
 
         if (!nextUrl) {
             throw new Error(
@@ -197,41 +232,56 @@ async function discoverBookUrls() {
     }
 
     console.log("");
-    console.log(`catalogue_pages=${cataloguePages}`);
-    console.log(`discovered=${cataloguePages * 20}`);
-    console.log(`unique_urls=${allBookUrls.size}`);
+    console.log(
+        `catalogue_pages=${cataloguePages}`
+    );
 
-    return Array.from(allBookUrls.values());
+    console.log(
+        `discovered=${cataloguePages * 20}`
+    );
+
+    console.log(
+        `unique_urls=${allBookUrls.size}`
+    );
+
+    return Array.from(
+        allBookUrls.values()
+    );
 }
 
 function extractRating($) {
-    const ratingClass = $(".product_main .star-rating")
-        .attr("class");
+    const ratingClass =
+        $(".product_main .star-rating")
+            .attr("class");
 
     if (!ratingClass) {
         return null;
     }
 
-    const ratingParts = ratingClass.split(/\s+/);
+    const ratingParts =
+        ratingClass.split(/\s+/);
 
     return (
         ratingParts.find(
-            (part) => part !== "star-rating"
+            (part) =>
+                part !== "star-rating"
         ) || null
     );
 }
 
 function extractDescription($) {
-    const descriptionHeading = $("#product_description");
+    const descriptionHeading =
+        $("#product_description");
 
     if (!descriptionHeading.length) {
         return null;
     }
 
-    const description = descriptionHeading
-        .next("p")
-        .text()
-        .trim();
+    const description =
+        descriptionHeading
+            .next("p")
+            .text()
+            .trim();
 
     return description || null;
 }
@@ -244,23 +294,28 @@ function extractBookRecord(
 ) {
     const $ = cheerio.load(html);
 
-    const title = $(".product_main h1")
-        .text()
-        .trim();
+    const title =
+        $(".product_main h1")
+            .text()
+            .trim();
 
-    const priceText = $(".product_main .price_color")
-        .first()
-        .text()
-        .trim();
+    const priceText =
+        $(".product_main .price_color")
+            .first()
+            .text()
+            .trim();
 
-    const availabilityText = $(".product_main .availability")
-        .text()
-        .replace(/\s+/g, " ")
-        .trim();
+    const availabilityText =
+        $(".product_main .availability")
+            .text()
+            .replace(/\s+/g, " ")
+            .trim();
 
-    const ratingText = extractRating($);
+    const ratingText =
+        extractRating($);
 
-    const description = extractDescription($);
+    const description =
+        extractDescription($);
 
     return {
         title,
@@ -274,30 +329,44 @@ function extractBookRecord(
     };
 }
 
-async function extractDetailRecords(bookEntries) {
+async function extractDetailRecords(
+    bookEntries
+) {
     const records = [];
 
-    for (let index = 0; index < bookEntries.length; index++) {
-        const entry = bookEntries[index];
+    for (
+        let index = 0;
+        index < bookEntries.length;
+        index++
+    ) {
+        const entry =
+            bookEntries[index];
 
-        const bookNumber = index + 1;
+        const bookNumber =
+            index + 1;
 
-        const cacheFile = getDetailCacheFile(bookNumber);
+        const cacheFile =
+            getDetailCacheFile(
+                bookNumber
+            );
 
-        const fetchedAt = new Date().toISOString();
+        const fetchedAt =
+            new Date().toISOString();
 
-        const { html } = await fetchPage(
-            entry.product_url,
-            cacheFile,
-            `detail page ${bookNumber}/60`
-        );
+        const { html } =
+            await fetchPage(
+                entry.product_url,
+                cacheFile,
+                `detail page ${bookNumber}/60`
+            );
 
-        const record = extractBookRecord(
-            html,
-            entry.product_url,
-            entry.source_page,
-            fetchedAt
-        );
+        const record =
+            extractBookRecord(
+                html,
+                entry.product_url,
+                entry.source_page,
+                fetchedAt
+            );
 
         records.push(record);
 
@@ -309,12 +378,191 @@ async function extractDetailRecords(bookEntries) {
     return records;
 }
 
+/* -----------------------------
+   STAGE 4: NORMALIZATION
+----------------------------- */
+
+function normalizePrice(priceText) {
+    if (
+        typeof priceText !== "string" ||
+        !priceText.trim()
+    ) {
+        return null;
+    }
+
+    const numericValue =
+        Number(
+            priceText
+                .replace("£", "")
+                .trim()
+        );
+
+    if (!Number.isFinite(numericValue)) {
+        return null;
+    }
+
+    return numericValue;
+}
+
+function normalizeProductUrl(productUrl) {
+    try {
+        const url = new URL(productUrl);
+
+        url.hash = "";
+
+        return url.href;
+    } catch {
+        return productUrl;
+    }
+}
+
+function normalizeBook(record) {
+    return {
+        title: record.title,
+        product_url:
+            normalizeProductUrl(
+                record.product_url
+            ),
+        price_text:
+            record.price_text,
+        price_gbp:
+            normalizePrice(
+                record.price_text
+            ),
+        availability_text:
+            record.availability_text,
+        rating_text:
+            record.rating_text,
+        description:
+            record.description,
+        source_page:
+            record.source_page,
+        fetched_at:
+            record.fetched_at,
+    };
+}
+
+/* -----------------------------
+   STAGE 4: ZOD SCHEMA
+----------------------------- */
+
+const bookSchema = z.object({
+    title: z.string().min(1),
+
+    product_url: z
+        .string()
+        .url(),
+
+    price_text: z
+        .string()
+        .min(1),
+
+    price_gbp: z
+        .number()
+        .finite()
+        .nonnegative(),
+
+    availability_text: z
+        .string()
+        .min(1),
+
+    rating_text: z
+        .string()
+        .nullable(),
+
+    description: z
+        .string()
+        .nullable(),
+
+    source_page: z
+        .string()
+        .url(),
+
+    fetched_at: z
+        .string()
+        .datetime(),
+});
+
+async function normalizeAndValidate(
+    rawRecords
+) {
+    const validBooks = [];
+    const errors = [];
+
+    for (
+        let index = 0;
+        index < rawRecords.length;
+        index++
+    ) {
+        const rawRecord =
+            rawRecords[index];
+
+        const normalized =
+            normalizeBook(
+                rawRecord
+            );
+
+        const result =
+            bookSchema.safeParse(
+                normalized
+            );
+
+        if (result.success) {
+            validBooks.push(
+                result.data
+            );
+        } else {
+            errors.push({
+                index,
+                product_url:
+                    rawRecord.product_url,
+                errors:
+                    result.error.issues,
+            });
+        }
+    }
+
+    await fs.mkdir(
+        OUTPUT_DIR,
+        { recursive: true }
+    );
+
+    await fs.writeFile(
+        BOOKS_OUTPUT_FILE,
+        JSON.stringify(
+            validBooks,
+            null,
+            2
+        ),
+        "utf8"
+    );
+
+    await fs.writeFile(
+        ERRORS_OUTPUT_FILE,
+        JSON.stringify(
+            errors,
+            null,
+            2
+        ),
+        "utf8"
+    );
+
+    return {
+        validBooks,
+        errors,
+    };
+}
+
 async function main() {
     try {
-        console.log("=== STAGE 3: DETAIL PAGE EXTRACTION ===");
+        console.log(
+            "=== STAGE 4: NORMALIZE + VALIDATE ==="
+        );
+
         console.log("");
 
-        const bookEntries = await discoverBookUrls();
+        const bookEntries =
+            await discoverBookUrls();
 
         if (bookEntries.length !== 60) {
             throw new Error(
@@ -323,48 +571,120 @@ async function main() {
         }
 
         console.log("");
-        console.log("Starting detail page extraction...");
-        console.log("");
-
-        const records = await extractDetailRecords(
-            bookEntries
+        console.log(
+            "Loading raw detail records..."
         );
 
-        await fs.mkdir(OUTPUT_DIR, {
-            recursive: true,
-        });
+        let rawRecords;
 
-        const rawOutputFile = path.join(
-            OUTPUT_DIR,
-            "raw-books.json"
-        );
+        try {
+            const rawJson =
+                await fs.readFile(
+                    RAW_OUTPUT_FILE,
+                    "utf8"
+                );
 
-        await fs.writeFile(
-            rawOutputFile,
-            JSON.stringify(records, null, 2),
-            "utf8"
-        );
-
-        console.log("");
-        console.log("=== STAGE 3 CHECKPOINT ===");
-        console.log(`detail_pages=${records.length}`);
-        console.log(`raw_records=${records.length}`);
-        console.log(`output=${rawOutputFile}`);
-        console.log("");
-
-        if (records.length > 0) {
-            console.log("First raw record:");
+            rawRecords =
+                JSON.parse(rawJson);
+        } catch {
             console.log(
-                JSON.stringify(records[0], null, 2)
+                "raw-books.json not found. Extracting detail pages..."
+            );
+
+            rawRecords =
+                await extractDetailRecords(
+                    bookEntries
+                );
+
+            await fs.mkdir(
+                OUTPUT_DIR,
+                { recursive: true }
+            );
+
+            await fs.writeFile(
+                RAW_OUTPUT_FILE,
+                JSON.stringify(
+                    rawRecords,
+                    null,
+                    2
+                ),
+                "utf8"
             );
         }
+
+        console.log(
+            `raw_records=${rawRecords.length}`
+        );
+
+        const {
+            validBooks,
+            errors,
+        } =
+            await normalizeAndValidate(
+                rawRecords
+            );
+
+        console.log("");
+        console.log(
+            "=== STAGE 4 CHECKPOINT ==="
+        );
+
+        console.log(
+            `valid=${validBooks.length}`
+        );
+
+        console.log(
+            `invalid=${errors.length}`
+        );
+
+        console.log(
+            `books_file=${BOOKS_OUTPUT_FILE}`
+        );
+
+        console.log(
+            `errors_file=${ERRORS_OUTPUT_FILE}`
+        );
+
+        if (validBooks.length > 0) {
+            console.log("");
+            console.log(
+                "First normalized record:"
+            );
+
+            console.log(
+                JSON.stringify(
+                    validBooks[0],
+                    null,
+                    2
+                )
+            );
+        }
+
+        if (validBooks.length !== 60) {
+            throw new Error(
+                `Expected exactly 60 valid books, found ${validBooks.length}`
+            );
+        }
+
+        if (errors.length !== 0) {
+            throw new Error(
+                `Expected 0 validation errors, found ${errors.length}`
+            );
+        }
+
+        console.log("");
+        console.log(
+            "STAGE 4 PASSED"
+        );
     } catch (error) {
         if (error.name === "AbortError") {
             console.error(
                 `ERROR: Request timed out after ${TIMEOUT_MS}ms`
             );
         } else {
-            console.error(`ERROR: ${error.message}`);
+            console.error(
+                `ERROR: ${error.message}`
+            );
         }
 
         process.exitCode = 1;
