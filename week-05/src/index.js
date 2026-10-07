@@ -5,6 +5,7 @@ const cheerio = require("cheerio");
 const START_URL = "https://books.toscrape.com/";
 
 const CACHE_DIR = path.join(__dirname, "..", "cache");
+const OUTPUT_DIR = path.join(__dirname, "..", "output");
 
 const USER_AGENT =
     "FlyRankInternship-A9/1.0 (+https://github.com/mukim-shah/flyrank-backend-ai-internship)";
@@ -13,13 +14,6 @@ const TIMEOUT_MS = 5000;
 const MIN_DELAY_MS = 500;
 
 let lastRequestTime = 0;
-
-function getCacheFile(pageNumber) {
-    return path.join(
-        CACHE_DIR,
-        `catalogue-page-${pageNumber}.html`
-    );
-}
 
 function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
@@ -34,14 +28,26 @@ async function waitForPoliteRequest() {
     }
 }
 
-async function fetchPage(url, pageNumber) {
-    const cacheFile = getCacheFile(pageNumber);
+function getCatalogueCacheFile(pageNumber) {
+    return path.join(
+        CACHE_DIR,
+        `catalogue-page-${pageNumber}.html`
+    );
+}
 
-    // Use cache if this page was already downloaded.
+function getDetailCacheFile(index) {
+    return path.join(
+        CACHE_DIR,
+        "details",
+        `book-${index}.html`
+    );
+}
+
+async function fetchPage(url, cacheFile, label) {
     try {
         const cachedHtml = await fs.readFile(cacheFile, "utf8");
 
-        console.log(`CACHE HIT: page ${pageNumber}`);
+        console.log(`CACHE HIT: ${label}`);
 
         return {
             html: cachedHtml,
@@ -53,10 +59,9 @@ async function fetchPage(url, pageNumber) {
         }
     }
 
-    // Wait before a real request if needed.
     await waitForPoliteRequest();
 
-    console.log(`FETCH: page ${pageNumber}`);
+    console.log(`FETCH: ${label}`);
     console.log(`url=${url}`);
 
     const controller = new AbortController();
@@ -85,7 +90,7 @@ async function fetchPage(url, pageNumber) {
 
         const html = await response.text();
 
-        await fs.mkdir(CACHE_DIR, {
+        await fs.mkdir(path.dirname(cacheFile), {
             recursive: true,
         });
 
@@ -94,8 +99,6 @@ async function fetchPage(url, pageNumber) {
         console.log(
             `response_size=${Buffer.byteLength(html)} bytes`
         );
-
-        console.log(`cached=${cacheFile}`);
 
         return {
             html,
@@ -138,59 +141,223 @@ function extractNextUrl(html, pageUrl) {
     return new URL(nextHref, pageUrl).href;
 }
 
+async function discoverBookUrls() {
+    const allBookUrls = new Map();
+
+    let currentUrl = START_URL;
+    let cataloguePages = 0;
+
+    while (cataloguePages < 3) {
+        const pageNumber = cataloguePages + 1;
+
+        const cacheFile = getCatalogueCacheFile(pageNumber);
+
+        const { html } = await fetchPage(
+            currentUrl,
+            cacheFile,
+            `catalogue page ${pageNumber}`
+        );
+
+        const bookLinks = extractBookLinks(
+            html,
+            currentUrl
+        );
+
+        console.log(
+            `page_${pageNumber}_books=${bookLinks.length}`
+        );
+
+        for (const url of bookLinks) {
+            if (!allBookUrls.has(url)) {
+                allBookUrls.set(url, {
+                    product_url: url,
+                    source_page: currentUrl,
+                });
+            }
+        }
+
+        cataloguePages += 1;
+
+        if (cataloguePages === 3) {
+            break;
+        }
+
+        const nextUrl = extractNextUrl(
+            html,
+            currentUrl
+        );
+
+        if (!nextUrl) {
+            throw new Error(
+                `Next catalogue page not found after page ${pageNumber}`
+            );
+        }
+
+        currentUrl = nextUrl;
+    }
+
+    console.log("");
+    console.log(`catalogue_pages=${cataloguePages}`);
+    console.log(`discovered=${cataloguePages * 20}`);
+    console.log(`unique_urls=${allBookUrls.size}`);
+
+    return Array.from(allBookUrls.values());
+}
+
+function extractRating($) {
+    const ratingClass = $(".product_main .star-rating")
+        .attr("class");
+
+    if (!ratingClass) {
+        return null;
+    }
+
+    const ratingParts = ratingClass.split(/\s+/);
+
+    return (
+        ratingParts.find(
+            (part) => part !== "star-rating"
+        ) || null
+    );
+}
+
+function extractDescription($) {
+    const descriptionHeading = $("#product_description");
+
+    if (!descriptionHeading.length) {
+        return null;
+    }
+
+    const description = descriptionHeading
+        .next("p")
+        .text()
+        .trim();
+
+    return description || null;
+}
+
+function extractBookRecord(
+    html,
+    productUrl,
+    sourcePage,
+    fetchedAt
+) {
+    const $ = cheerio.load(html);
+
+    const title = $(".product_main h1")
+        .text()
+        .trim();
+
+    const priceText = $(".product_main .price_color")
+        .first()
+        .text()
+        .trim();
+
+    const availabilityText = $(".product_main .availability")
+        .text()
+        .replace(/\s+/g, " ")
+        .trim();
+
+    const ratingText = extractRating($);
+
+    const description = extractDescription($);
+
+    return {
+        title,
+        product_url: productUrl,
+        price_text: priceText,
+        availability_text: availabilityText,
+        rating_text: ratingText,
+        description,
+        source_page: sourcePage,
+        fetched_at: fetchedAt,
+    };
+}
+
+async function extractDetailRecords(bookEntries) {
+    const records = [];
+
+    for (let index = 0; index < bookEntries.length; index++) {
+        const entry = bookEntries[index];
+
+        const bookNumber = index + 1;
+
+        const cacheFile = getDetailCacheFile(bookNumber);
+
+        const fetchedAt = new Date().toISOString();
+
+        const { html } = await fetchPage(
+            entry.product_url,
+            cacheFile,
+            `detail page ${bookNumber}/60`
+        );
+
+        const record = extractBookRecord(
+            html,
+            entry.product_url,
+            entry.source_page,
+            fetchedAt
+        );
+
+        records.push(record);
+
+        console.log(
+            `extracted=${bookNumber}/60 | title=${record.title}`
+        );
+    }
+
+    return records;
+}
+
 async function main() {
     try {
-        const allBookUrls = new Set();
+        console.log("=== STAGE 3: DETAIL PAGE EXTRACTION ===");
+        console.log("");
 
-        let currentUrl = START_URL;
-        let cataloguePages = 0;
+        const bookEntries = await discoverBookUrls();
 
-        while (cataloguePages < 3) {
-            const pageNumber = cataloguePages + 1;
-
-            const { html } = await fetchPage(
-                currentUrl,
-                pageNumber
+        if (bookEntries.length !== 60) {
+            throw new Error(
+                `Expected 60 unique book URLs, found ${bookEntries.length}`
             );
-
-            const bookLinks = extractBookLinks(
-                html,
-                currentUrl
-            );
-
-            console.log(
-                `page_${pageNumber}_books=${bookLinks.length}`
-            );
-
-            for (const url of bookLinks) {
-                allBookUrls.add(url);
-            }
-
-            cataloguePages += 1;
-
-            // Stop after exactly 3 catalogue pages.
-            if (cataloguePages === 3) {
-                break;
-            }
-
-            const nextUrl = extractNextUrl(
-                html,
-                currentUrl
-            );
-
-            if (!nextUrl) {
-                throw new Error(
-                    `Next catalogue page not found after page ${pageNumber}`
-                );
-            }
-
-            currentUrl = nextUrl;
         }
 
         console.log("");
-        console.log(`catalogue_pages=${cataloguePages}`);
-        console.log(`discovered=${cataloguePages * 20}`);
-        console.log(`unique_urls=${allBookUrls.size}`);
+        console.log("Starting detail page extraction...");
+        console.log("");
+
+        const records = await extractDetailRecords(
+            bookEntries
+        );
+
+        await fs.mkdir(OUTPUT_DIR, {
+            recursive: true,
+        });
+
+        const rawOutputFile = path.join(
+            OUTPUT_DIR,
+            "raw-books.json"
+        );
+
+        await fs.writeFile(
+            rawOutputFile,
+            JSON.stringify(records, null, 2),
+            "utf8"
+        );
+
+        console.log("");
+        console.log("=== STAGE 3 CHECKPOINT ===");
+        console.log(`detail_pages=${records.length}`);
+        console.log(`raw_records=${records.length}`);
+        console.log(`output=${rawOutputFile}`);
+        console.log("");
+
+        if (records.length > 0) {
+            console.log("First raw record:");
+            console.log(
+                JSON.stringify(records[0], null, 2)
+            );
+        }
     } catch (error) {
         if (error.name === "AbortError") {
             console.error(
