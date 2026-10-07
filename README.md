@@ -11,7 +11,7 @@
 <img src="https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black" alt="Swagger">
 <img src="https://img.shields.io/badge/Supabase-Auth-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white" alt="Supabase Auth">
 <img src="https://img.shields.io/badge/JWT-Bearer%20Auth-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white" alt="JWT Bearer Auth">
-<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">\n\n\n\n<img src="https\://img.shields.io/badge/Cheerio-HTML%20Parser-E34F26?style=for-the-badge" alt="Cheerio">\n\n\n\n<img src="https\://img.shields.io/badge/Zod-Schema%20Validation-3E67B1?style=for-the-badge" alt="Zod">
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript"><img src="https\://img.shields.io/badge/Cheerio-HTML%20Parser-E34F26?style=for-the-badge" alt="Cheerio"><img src="https\://img.shields.io/badge/Zod-Schema%20Validation-3E67B1?style=for-the-badge" alt="Zod">
 <img src="https://img.shields.io/github/stars/mukim-shah/flyrank-backend-ai-internship?style=for-the-badge" alt="GitHub Stars">
 <img src="https://img.shields.io/github/last-commit/mukim-shah/flyrank-backend-ai-internship?style=for-the-badge" alt="Last Commit">
 </div>
