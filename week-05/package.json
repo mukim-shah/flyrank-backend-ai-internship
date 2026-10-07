@@ -4,7 +4,8 @@
   "description": "**FlyRank AI Internship — Backend Track**  \r **Week 05 — Assignment A9: The Polite Scraper**",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js"
   },
   "keywords": [],
   "author": "",
