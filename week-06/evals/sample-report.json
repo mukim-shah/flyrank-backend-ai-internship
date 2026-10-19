@@ -1,0 +1,115 @@
+{
+  "evaluatedAt": "2026-10-19T11:38:45.318Z",
+  "promptVersion": "triage-v1",
+  "total": 8,
+  "matched": 8,
+  "percentage": 100,
+  "failures": [],
+  "results": [
+    {
+      "id": "case-01",
+      "matched": true,
+      "expected": {
+        "category": "billing",
+        "urgency": "high"
+      },
+      "actual": {
+        "category": "billing",
+        "urgency": "high",
+        "confidence": 0.95
+      }
+    },
+    {
+      "id": "case-02",
+      "matched": true,
+      "expected": {
+        "category": "bug",
+        "urgency": "normal"
+      },
+      "actual": {
+        "category": "bug",
+        "urgency": "normal",
+        "confidence": 0.9
+      }
+    },
+    {
+      "id": "case-03",
+      "matched": true,
+      "expected": {
+        "category": "feature",
+        "urgency": "normal"
+      },
+      "actual": {
+        "category": "feature",
+        "urgency": "normal",
+        "confidence": 0.95
+      }
+    },
+    {
+      "id": "case-04",
+      "matched": true,
+      "expected": {
+        "category": "other",
+        "urgency": "normal"
+      },
+      "actual": {
+        "category": "other",
+        "urgency": "normal",
+        "confidence": 0.85
+      }
+    },
+    {
+      "id": "case-05",
+      "matched": true,
+      "expected": {
+        "category": "bug",
+        "urgency": "high"
+      },
+      "actual": {
+        "category": "bug",
+        "urgency": "high",
+        "confidence": 0.95
+      }
+    },
+    {
+      "id": "case-06",
+      "matched": true,
+      "expected": {
+        "category": "billing",
+        "urgency": "high"
+      },
+      "actual": {
+        "category": "billing",
+        "urgency": "high",
+        "confidence": 0.95
+      }
+    },
+    {
+      "id": "case-07",
+      "matched": true,
+      "expected": {
+        "category": "other",
+        "urgency": "normal"
+      },
+      "actual": {
+        "category": "other",
+        "urgency": "normal",
+        "confidence": 0.3
+      },
+      "unsureConfidencePass": true
+    },
+    {
+      "id": "case-08",
+      "matched": true,
+      "expected": {
+        "category": "other",
+        "urgency": "normal"
+      },
+      "actual": {
+        "category": "other",
+        "urgency": "normal",
+        "confidence": 0.95
+      }
+    }
+  ]
+}
