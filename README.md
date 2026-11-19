@@ -1,6 +1,6 @@
 # 🚀 FlyRank Backend AI Engineering Internship
-
 <div align="center">
+
 <img src="https://img.shields.io/badge/Node.js-5FA04E?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js">
 <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express.js">
 <img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite">
@@ -15,20 +15,21 @@
 <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
 <img src="https://img.shields.io/badge/Cheerio-HTML%20Parser-E34F26?style=for-the-badge" alt="Cheerio">
 <img src="https://img.shields.io/badge/Zod-Schema%20Validation-3E67B1?style=for-the-badge" alt="Zod">
-<img src="https://img.shields.io/badge/LLM-Triage%20API-7C3AED?style=for-the-badge" alt="LLM Triage API">
-<img src="https://img.shields.io/badge/OpenRouter-Compatible-6366F1?style=for-the-badge" alt="OpenRouter Compatible">
 <img src="https://img.shields.io/github/stars/mukim-shah/flyrank-backend-ai-internship?style=for-the-badge" alt="GitHub Stars">
 <img src="https://img.shields.io/github/last-commit/mukim-shah/flyrank-backend-ai-internship?style=for-the-badge" alt="Last Commit">
+
 </div>
+
 ---
 # 📖 About
 
 Welcome to my **FlyRank Backend AI Engineering Internship** repository.
 This repository contains all assignments, backend projects, API documentation, screenshots, learning notes, and progress completed during my internship at **FlyRank AI**.
 The primary objective of this repository is to document my learning journey while building production-quality backend applications using modern backend technologies and best practices.
----
-# ⚡ Quick Navigation
 
+---
+
+# ⚡ Quick Navigation
 - 📂 Repository Structure
 - 🏗️ Architecture
 - 🚀 Getting Started
@@ -39,8 +40,8 @@ The primary objective of this repository is to document my learning journey whil
 - 🗺️ Roadmap
 - 👨‍💻 Author
 ---
-# 📂 Repository Structure
 
+# 📂 Repository Structure
 ```text
 flyrank-backend-ai-internship/
 │
@@ -122,40 +123,40 @@ flyrank-backend-ai-internship/
 │   ├── package.json
 │   ├── package-lock.json
 │   └── README.md
+|
+│__ week-06/ Blank
+|
+└── week-07/
+├── backend/
+│   ├── ai.js
+│   ├── executionStore.js
+│   ├── inngest.js
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── server.js
+│   └── workflow.js
 │
-├── week-06/
-│   ├── evals/
-│   │   ├── cases.json
-│   │   ├── run.js
-│   │   ├── latest-report.json
-│   │   └── sample-report.json
-│   ├── prompts/
-│   │   └── triage-v1.txt
-│   ├── src/
-│   │   ├── index.js
-│   │   └── llm/
-│   │       ├── client.js
-│   │       ├── errors.js
-│   │       ├── logger.js
-│   │       ├── prompt.js
-│   │       ├── retry.js
-│   │       ├── schema.js
-│   │       └── service.js
-│   ├── test/
-│   │   └── triage.test.js
-│   ├── .env.example
-│   ├── JOB-CARD.md
-│   ├── package.json
-│   └── README.md
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   ├── .gitignore
+│   ├── eslint.config.js
+│   ├── index.html
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── README.md
+│   └── vite.config.js
 │
-└── ...
+└── README.md
+...
 ```
 ---
+
 # 🏗️ Architecture
 
 This repository supports **two different execution modes.**
-## Standalone Mode
 
+## Standalone Mode
 Each week's assignment can run independently.
 ```bash
 npm run week1
@@ -173,6 +174,7 @@ Root server.js
    ▼               ▼               ▼               ▼
 week-01/routes  week-02/routes  week-03/routes  week-03a/routes
 ```
+
 ---
 ## Multi-Week Mode
 
@@ -191,6 +193,7 @@ Available Routes:
 └── ...
 ```
 ---
+
 # 🌐 Live Links
 
 - **Live Demo:** https://flyrank-backend-ai-internship.onrender.com
@@ -201,7 +204,6 @@ Available Routes:
 # 📄 API Documentation
 
 ### Week 02 Swagger
-
 ```text
 https://flyrank-backend-ai-internship.onrender.com/week-02/docs
 ```
@@ -209,23 +211,22 @@ https://flyrank-backend-ai-internship.onrender.com/week-02/docs
 # 🛠️ Tech Stack
 
 ### Backend
-
 - Node.js
 - Express.js
 - JavaScript
-### Databases
 
+### Databases
 - SQLite
 - better-sqlite3
 - PostgreSQL
 - pg (node-postgres)
-### Authentication
 
+### Authentication
 - Supabase Auth
 - JWT Bearer Authentication
 - `@supabase/supabase-js`
-### API Development
 
+### API Development
 - REST APIs
 - CRUD Operations
 - OpenAPI 3.0
@@ -234,32 +235,22 @@ https://flyrank-backend-ai-internship.onrender.com/week-02/docs
 - Error Handling
 - Protected API Routes
 - Authentication Middleware
-### DevOps & Infrastructure
 
+### DevOps & Infrastructure
 - Docker
 - Docker Compose
 - Docker Named Volumes
 - PostgreSQL Containerization
 - Environment Variables
 - Healthchecks
-### LLM & Data Processing
 
-- OpenRouter-compatible OpenAI SDK client
-- LLM prompt versioning
-- Zod schema validation
-- Cheerio HTML parsing
-- Fetch API and local caching
-- Structured JSONL logging
-- Automated LLM evaluation
 ### Development Tools
-
 - Git
 - GitHub
-- npm
-- Node.js test runner
 - Postman
 - DB Browser for SQLite
 - PowerShell
+
 ---
 # 📅 Internship Progress
 
@@ -271,7 +262,7 @@ https://flyrank-backend-ai-internship.onrender.com/week-02/docs
 | ✅ Week 03A | Dockerized Task Management API with PostgreSQL | Completed |
 | ✅ Week 04 | Supabase Authentication API | Completed |
 | ✅ Week 05 | The Polite Scraper — Responsible Web Scraping Pipeline | Completed |
-| ✅ Week 06 | LLM Triage API — Schema-Validated Support Classification | Completed |
+
 ---
 # 📖 Weekly Assignments
 
@@ -279,7 +270,6 @@ https://flyrank-backend-ai-internship.onrender.com/week-02/docs
 
 **Objective:** Build the smallest possible backend server using Express.js with two JSON API endpoints.
 ### What I Built
-
 - Developed my first Express.js backend application
 - Created JSON API endpoints (`/` and `/about`)
 - Learned Express routing and request handling
@@ -287,19 +277,20 @@ https://flyrank-backend-ai-internship.onrender.com/week-02/docs
 - Organized a basic Node.js project structure
 - Used npm scripts to run the application
 - Practiced Git & GitHub workflow for version control
-### Key Skills
 
+### Key Skills
 - Express Fundamentals
 - JSON APIs
 - Express Routing
 - Node.js Basics
 - Git & GitHub
+
 ---
 # ✅ Week 02 — Express CRUD Task Management API
 
 **Objective:** Build a RESTful Task Management API with complete CRUD functionality and professional API documentation.
-### What I Built
 
+### What I Built
 - Developed a complete RESTful CRUD API using Express.js
 - Implemented Create, Read, Update and Delete operations
 - Added request body validation for POST and PUT endpoints
@@ -310,8 +301,8 @@ https://flyrank-backend-ai-internship.onrender.com/week-02/docs
 - Tested APIs using Postman
 - Refactored the project into a modular Express Router architecture
 - Created a multi-week repository structure where all assignments can run from a single Express server while still supporting standalone execution
-### Key Skills
 
+### Key Skills
 - REST API Development
 - CRUD Operations
 - Request Validation
@@ -322,12 +313,13 @@ https://flyrank-backend-ai-internship.onrender.com/week-02/docs
 - Express Router
 - Modular Architecture
 - Backend Project Organization
+
 ---
+
 # ✅ Week 03 — Express CRUD API with SQLite Database
-
 **Objective:** Replace the in-memory task storage from Week 02 with a persistent SQLite database while preserving the existing RESTful API structure.
-### What I Built
 
+### What I Built
 - Replaced in-memory storage with SQLite
 - Integrated better-sqlite3 into the Express application
 - Automatically created the database and tasks table
@@ -337,8 +329,8 @@ https://flyrank-backend-ai-internship.onrender.com/week-02/docs
 - Tested SQL queries using DB Browser for SQLite
 - Verified persistent storage across server restarts
 - Maintained the same REST API endpoints from Week 02
-### Key Skills
 
+### Key Skills
 - SQLite
 - better-sqlite3
 - SQL CRUD Operations
@@ -347,12 +339,14 @@ https://flyrank-backend-ai-internship.onrender.com/week-02/docs
 - Persistent Storage
 - Express + SQLite Integration
 - DB Browser for SQLite
+
 ---
+
 # ✅ Week 03A — Dockerized Task Management API with PostgreSQL
 
 **Objective:** Containerize the Task Management API, replace the previous SQLite/in-memory storage approach with PostgreSQL, and run the complete application stack using Docker Compose.
-### What I Built
 
+### What I Built
 - Replaced SQLite-based storage with PostgreSQL
 - Integrated PostgreSQL with the Express backend
 - Dockerized the Node.js application
@@ -369,8 +363,8 @@ https://flyrank-backend-ai-internship.onrender.com/week-02/docs
 - Tested complete CRUD operations against PostgreSQL
 - Verified database persistence after container recreation
 - Tested the API using PowerShell `Invoke-RestMethod`
-### 🏗️ Week 03A Architecture
 
+### 🏗️ Week 03A Architecture
 ```text
 Client
    │
@@ -388,10 +382,12 @@ PostgreSQL Database
    │
    ▼
 Docker Named Volume
-```
-The application follows a layered architecture where HTTP routes communicate with the service layer, which communicates with the PostgreSQL repository. The repository is responsible for database operations.
-### 🐳 Docker Architecture
 
+```
+
+The application follows a layered architecture where HTTP routes communicate with the service layer, which communicates with the PostgreSQL repository. The repository is responsible for database operations.
+
+### 🐳 Docker Architecture
 ```text
 Docker Compose
 │
@@ -400,8 +396,11 @@ Docker Compose
 │
 └── postgres
     └── PostgreSQL 16
+
 ```
+
 The application and database run as separate containers, with the application depending on the PostgreSQL healthcheck before startup.
+
 ### 🗄️ PostgreSQL
 
 The PostgreSQL database runs inside Docker and uses a named volume for persistent storage.
@@ -414,6 +413,7 @@ flyrank-postgres
 Volume:
 postgres_data
 ```
+
 The Docker named volume allows database data to survive container recreation.
 ### 🔐 Environment Configuration
 
@@ -424,7 +424,6 @@ PORT=3000
 ```
 A `.env.example` file is also provided as a safe configuration template. The local `.env` file should not be committed to Git.
 ### 📦 Database Initialization
-
 The PostgreSQL schema is initialized using:
 ```text
 db/init.sql
@@ -436,23 +435,28 @@ CREATE TABLE IF NOT EXISTS tasks (
     title TEXT NOT NULL,
     completed BOOLEAN DEFAULT FALSE
 );
+
 ```
 Docker Compose mounts this SQL file into PostgreSQL's initialization directory so the database can automatically create the required table during initialization.
+
 ### 🧩 Repository & Service Layer
 
 The active PostgreSQL repository is:
 ```text
 repositories/postgresRepository.js
 ```
+
 It provides operations for:
 - `getAllTasks()`
 - `getTaskById(id)`
 - `createTask(title, completed)`
 - `updateTask(id, title, completed)`
 - `deleteTask(id)`
+
 The service layer is implemented in:
 ```text
 service.js
+
 ```
 This separates database access from HTTP route handling.
 ### 🌐 Week 03A API Endpoints
@@ -466,6 +470,7 @@ This separates database access from HTTP route handling.
 | POST | `/tasks` | Create a new task |
 | PUT | `/tasks/:id` | Update an existing task |
 | DELETE | `/tasks/:id` | Delete a task |
+
 ### 🚀 Running Week 03A
 
 Inside the `week-03a` directory:
@@ -484,9 +489,10 @@ To stop the application:
 ```bash
 docker compose down
 ```
-**Note:** `docker compose down -v` should not be used while testing database persistence because it removes the PostgreSQL volume.
-### 🧪 Testing & Verification
 
+**Note:** `docker compose down -v` should not be used while testing database persistence because it removes the PostgreSQL volume.
+
+### 🧪 Testing & Verification
 The Week 03A API was tested for:
 - Health check
 - Create task
@@ -499,9 +505,10 @@ The Week 03A API was tested for:
 - Docker container startup
 - PostgreSQL healthcheck
 - Database persistence after container recreation
-The persistence test confirmed that data remained available after the application and PostgreSQL containers were stopped and recreated while the Docker named volume was preserved.
-### Key Skills
 
+The persistence test confirmed that data remained available after the application and PostgreSQL containers were stopped and recreated while the Docker named volume was preserved.
+
+### Key Skills
 - Docker Fundamentals
 - Docker Images
 - Docker Containers
@@ -519,12 +526,14 @@ The persistence test confirmed that data remained available after the applicatio
 - Persistent Database Storage
 - API Testing
 - PowerShell API Testing
+
 ---
+
 # ✅ Week 04 — Supabase Authentication API
 
 **Objective:** Build a secure Node.js + Express authentication API using Supabase Auth, JWT-based authentication, reusable middleware, protected routes, and Swagger API documentation.
-### Assignment
 
+### Assignment
 | Detail | Information |
 |--------|-------------|
 | **Assignment** | BE-03 — Auth - Login & Protect |
@@ -534,8 +543,8 @@ The persistence test confirmed that data remained available after the applicatio
 | **Authentication** | Supabase Auth |
 | **Authorization** | JWT Bearer Authentication |
 | **Documentation** | Swagger / OpenAPI |
-### What I Built
 
+### What I Built
 - Implemented user signup using Supabase Auth
 - Implemented user login
 - Implemented user logout
@@ -553,6 +562,7 @@ The persistence test confirmed that data remained available after the applicatio
 - Added OpenAPI API documentation
 - Tested authentication flows and protected routes
 - Added secure environment variable configuration
+
 ### 🔐 Authentication Architecture
 
 ```text
@@ -573,9 +583,10 @@ Express Backend
    │ Verify JWT with Supabase
    ▼
 Protected Route
-```
-### 🔄 Authentication Flow
 
+```
+
+### 🔄 Authentication Flow
 ```text
 Client sends email + password
           ↓
@@ -592,7 +603,9 @@ Supabase verifies the token
 Valid user accesses protected route
           ↓
 Missing / invalid / expired token → 401
+
 ```
+
 ### 🛡️ Authentication Middleware
 
 Authentication logic is implemented in:
@@ -609,6 +622,7 @@ The middleware:
 7. Stores the token in `req.accessToken`
 8. Passes valid requests to the protected route
 This allows multiple protected routes to reuse the same authentication logic.
+
 ### 🌐 Week 04 API Endpoints
 
 | Method | Endpoint | Authentication | Description |
@@ -621,10 +635,10 @@ This allows multiple protected routes to reuse the same authentication logic.
 | GET | `/protected/profile` | Bearer JWT | Get authenticated user profile |
 | GET | `/protected/dashboard` | Bearer JWT | Access protected dashboard |
 | GET | `/docs` | Public | Open Swagger UI |
+
 ### 🔑 Authentication Endpoints
 
 #### Sign Up
-
 ```http
 POST /auth/signup
 Content-Type: application/json
@@ -635,8 +649,8 @@ Content-Type: application/json
   "password": "YourStrongPassword123"
 }
 ```
-#### Login
 
+#### Login
 ```http
 POST /auth/login
 Content-Type: application/json
@@ -654,8 +668,8 @@ Successful login returns authentication tokens:
   "refresh_token": "YOUR_REFRESH_TOKEN"
 }
 ```
-#### Logout
 
+#### Logout
 ```http
 POST /auth/logout
 Authorization: Bearer <access_token>
@@ -664,30 +678,30 @@ Successful logout returns:
 ```text
 204 No Content
 ```
-### 🔒 Protected Routes
 
+### 🔒 Protected Routes
 Protected endpoints require:
 ```http
 Authorization: Bearer <access_token>
 ```
-#### Protected Profile
 
+#### Protected Profile
 ```http
 GET /protected/profile
 ```
-#### Protected Dashboard
 
+#### Protected Dashboard
 ```http
 GET /protected/dashboard
 ```
-### 🌐 Public Route
 
+### 🌐 Public Route
 The public information endpoint does not require authentication:
 ```http
 GET /public/info
 ```
-### ❌ Unauthorized Request Handling
 
+### ❌ Unauthorized Request Handling
 Requests without a token return:
 ```json
 {
@@ -709,7 +723,6 @@ with:
 401 Unauthorized
 ```
 ### 📚 Swagger API Documentation
-
 Interactive Swagger documentation is available locally at:
 ```text
 http://localhost:3000/docs
@@ -721,17 +734,18 @@ Swagger provides:
 - Interactive API testing
 - Protected route testing
 Protected endpoints can be tested by logging in, copying the returned `access_token`, selecting **Authorize 🔒** in Swagger, and providing the token.
-### 🔐 Environment Configuration
 
+### 🔐 Environment Configuration
 Week 04 uses environment variables for Supabase configuration:
 ```env
 SUPABASE_URL=your_supabase_project_url
 SUPABASE_KEY=your_supabase_anon_key
 PORT=3000
 ```
-The `.env` file is excluded from GitHub and `.env.example` provides a safe configuration template.
-### 🧪 Authentication Testing
 
+The `.env` file is excluded from GitHub and `.env.example` provides a safe configuration template.
+
+### 🧪 Authentication Testing
 The following scenarios were tested:
 - User signup with Supabase
 - Email confirmation
@@ -748,6 +762,7 @@ The following scenarios were tested:
 - Swagger UI authentication
 - Swagger protected endpoint access
 - Swagger unauthorized request
+
 ### 📊 HTTP Status Codes
 
 | Status | Meaning |
@@ -757,16 +772,16 @@ The following scenarios were tested:
 | `204` | Logout successful with no response body |
 | `400` | Invalid or missing request data |
 | `401` | Authentication required or token invalid |
-### 🔒 Security Practices
 
+### 🔒 Security Practices
 - Supabase credentials are stored in `.env`
 - `.env` is excluded through `.gitignore`
 - `.env.example` contains placeholders only
 - Protected routes require Bearer authentication
 - JWT tokens are verified through Supabase
 - Invalid or expired tokens are rejected with `401 Unauthorized`
-### Key Skills
 
+### Key Skills
 - Supabase Auth
 - JWT Authentication
 - Bearer Token Authentication
@@ -781,12 +796,14 @@ The following scenarios were tested:
 - Environment Variables
 - API Security
 - Authentication Testing
+
 ---
+
 # 🕷️ Week 05 — The Polite Scraper
 
 **Objective:** Build a small, reliable, and responsible web-scraping pipeline that discovers, extracts, normalizes, validates, caches, stores, and reports structured data from the public **Books to Scrape** practice sandbox.
-### Assignment
 
+### Assignment
 | Detail | Information |
 |--------|-------------|
 | **Assignment** | A9 — The Polite Scraper |
@@ -795,8 +812,8 @@ The following scenarios were tested:
 | **Language** | JavaScript / Node.js |
 | **Target** | Books to Scrape |
 | **Status** | Completed |
-### What I Built
 
+### What I Built
 - Built a complete polite web-scraping pipeline for the Books to Scrape practice sandbox
 - Processed exactly the first 3 catalogue pages
 - Discovered 60 unique book detail URLs
@@ -812,6 +829,7 @@ The following scenarios were tested:
 - Applied request timeouts and polite request delays
 - Generated raw, validated, error, and operational report files
 - Designed the pipeline so reruns remain idempotent and do not produce duplicate records
+
 ### 🕷️ Scraping Pipeline
 
 ```text
@@ -841,6 +859,7 @@ Normalize
     ▼
   Report
 ```
+
 ### 🎯 Assignment Requirements
 
 | Requirement | Result |
@@ -856,8 +875,8 @@ Normalize
 | Local caching | ✅ Completed |
 | Run reporting | ✅ Completed |
 | Idempotent reruns | ✅ Completed |
-### 📦 Record Structure
 
+### 📦 Record Structure
 Raw records contain the following fields:
 ```text
 title
@@ -868,22 +887,25 @@ rating_text
 description
 source_page
 fetched_at
+
 ```
 After normalization, the price is represented as:
 ```text
 price_gbp
 ```
 The original price_text is preserved alongside the normalized value.
+
 ### 🌐 Target & Scope
 
 The scraper targets:
 ```text
 https://books.toscrape.com/
 ```
+
 The assignment is intentionally limited to the first 3 catalogue pages and the required book information from the 60 discovered detail pages.
 The implementation does not access login-protected, paywalled, private, restricted, or unrelated websites.
-### 🤖 Robots & Responsible Scraping
 
+### 🤖 Robots & Responsible Scraping
 The target's robots endpoint was checked:
 ```text
 https://books.toscrape.com/robots.txt
@@ -904,8 +926,8 @@ The scraper therefore applies responsible collection practices:
 - Only required data is collected
 - No authentication, paywall, or access-control bypassing
 - Official APIs should be preferred for real-world services where available
-### 🧪 Validation & Failure Handling
 
+### 🧪 Validation & Failure Handling
 Each detail page is processed independently so a single failure does not terminate the complete run.
 Failure handling includes:
 - 200 → process normally
@@ -927,6 +949,7 @@ duration_ms=1733
 STAGE 5 PASSED
 ```
 The pages_fetched=0 result is expected when all legitimate detail pages are already cached. The deliberately broken URL was uncached, failed as expected, and was skipped without affecting the 60 valid records.
+
 ### 📊 Final Pipeline Results
 
 | Metric | Result |
@@ -940,9 +963,10 @@ The pages_fetched=0 result is expected when all legitimate detail pages are alre
 | Duplicate output records | 0 |
 | Cache hits | 60 on the demonstrated run |
 | Run status | PASSED |
-### 📁 Generated Outputs
 
+### 📁 Generated Outputs
 The Week 05 scraper produces:
+
 | File | Purpose |
 |------|---------|
 | output/books.json | Normalized and validated book records |
@@ -950,17 +974,18 @@ The Week 05 scraper produces:
 | output/raw-books.json | Raw extracted records |
 | output/run-report.json | Operational run summary |
 | output/sample-run-report.json | Published sample evidence |
-Generated cache files and normal development outputs are excluded from Git through .gitignore, while the sample run report can be published as evidence.
-### ♻️ Idempotency
 
+Generated cache files and normal development outputs are excluded from Git through .gitignore, while the sample run report can be published as evidence.
+
+### ♻️ Idempotency
 The scraper is designed to be safely rerunnable.
 ```text
 Run 1 → 60 valid records
 Run 2 → 60 valid records
 ```
 A second run does not append another 60 records to produce 120 duplicates. Output is regenerated from the current validated dataset.
-### 🧠 Key Skills
 
+### 🧠 Key Skills
 - Web Scraping
 - Cheerio HTML Parsing
 - Fetch API
@@ -980,13 +1005,13 @@ A second run does not append another 60 records to produce 120 duplicates. Outpu
 - Responsible Data Collection
 - Node.js File System
 - JavaScript Backend Development
-### 📝 Honest Limitation
 
+### 📝 Honest Limitation
 The scraper is designed specifically for the current HTML structure of **Books to Scrape**.
 Its selectors depend on the target page structure, so HTML changes may require selector updates. It is not intended to be a universal scraper.
 A browser automation tool such as Playwright could be useful for JavaScript-rendered websites, but it was not necessary for this assignment because the required data was available directly in the returned HTML.
-### 📚 Stage Commit History
 
+### 📚 Stage Commit History
 ```text
 Stage 0: classify scraping target
 Stage 1: fetch and cache HTML
@@ -995,8 +1020,8 @@ Stage 3: extract detail page records
 Stage 4: normalize and validate records
 Stage 6: publish scraper evidence
 ```
-### 🎓 Week 05 Learning Outcomes
 
+### 🎓 Week 05 Learning Outcomes
 By completing this assignment, I practiced:
 - Designing a complete backend scraping pipeline
 - Understanding responsible web data collection
@@ -1011,224 +1036,439 @@ By completing this assignment, I practiced:
 - Designing idempotent data-processing workflows
 - Producing operational run reports
 - Thinking about reliability, provenance, and failure isolation
-# ✅ Week 06 — LLM Triage API
 
-**Objective:** Build a schema-validated LLM endpoint that classifies customer support messages into fixed categories and urgency levels, with versioned prompts, controlled retries, bounded output repair, structured logs, and an evaluation suite.
-### Assignment
+---
+
+
+# ✅ Week 07 — FlowAI Visual AI Workflow Builder
+**FlyRank AI Internship · Backend AI Engineering Track**
+
+**# Objective**
+
+Build a visual platform that allows users to design, connect, and execute AI-powered decision workflows using React Flow, Express.js, OpenRouter, and Inngest.
+
+**# Assignment**
 
 | Detail | Information |
 |--------|-------------|
-| **Assignment** | LLM Triage API |
+| **Project** | FlowAI Visual AI Workflow Builder |
 | **Track** | Backend AI Engineering |
-| **Week** | 06 |
+| **Week** | 07 |
 | **Language** | JavaScript |
-| **Runtime** | Node.js 22+ |
-| **Framework** | Express.js |
-| **Validation** | Zod |
-| **LLM Integration** | OpenRouter-compatible OpenAI SDK client |
-| **Prompt Version** | triage-v1 |
-| **Testing** | Node.js test runner |
-| **Recorded Evaluation** | 8/8 cases passed |
-| **Status** | Completed |
-### What I Built
+| **Frontend Framework** | React |
+| **Frontend Tool** | Vite |
+| **Visual Workflow Editor** | @xyflow/react |
+| **Backend Runtime** | Node.js |
+| **Backend Framework** | Express.js |
+| **AI Integration** | OpenRouter API |
+| **AI Client** | OpenAI SDK |
+| **Background Execution** | Inngest |
+| **Development Environment** | Local |
 
-- Developed an Express API with POST /triage
-- Added Zod input and output validation
-- Restricted category and urgency values to fixed enums
-- Stored the versioned prompt in prompts/triage-v1.txt
-- Integrated an OpenRouter-compatible OpenAI SDK client
-- Added stub mode for testing without provider calls
-- Added deterministic fallback behavior when LLM_ENABLED=false
-- Implemented controlled retries for rate limits, server errors, and transient connection failures
-- Added one repair attempt for invalid model output
-- Added quarantine logging when repaired output remains invalid
-- Recorded operational metadata in structured JSONL logs
-- Avoided logging raw customer messages and raw model output
-- Created eight labelled evaluation cases
-- Added automated tests using the Node.js built-in test runner
-### 🏗️ LLM Triage Architecture
+**### What I Built**
+
+- Built an interactive visual workflow editor using React Flow
+- Added and managed decision nodes within workflows
+- Enabled users to move, organize, and connect workflow nodes
+- Added editable prompts for AI decision evaluation
+- Implemented YES / NO conditional branching paths
+- Integrated OpenRouter through the OpenAI SDK for AI-powered decisions
+- Connected the Express backend with background workflow execution through Inngest
+- Added workflow execution status tracking
+- Added execution logs for inspecting workflow activity
+- Supported workflow configuration import and export in JSON format
+- Added basic workflow execution error handling
+- Included basic protection against unwanted workflow loops
+
+**### 🏗️ System Architecture**
+
+FlowAI separates the visual workflow editor, backend API, AI decision evaluation, and background execution responsibilities.
 
 ```text
-Client
-  │
-  ▼
-POST /triage
-  │
-  ▼
-Input Schema Validation
-  │
-  ▼
-Triage Service
-  │
-  ├── Stub / Deterministic Fallback
-  │
-  └── LLM Client
-        │
-        ▼
-   Versioned Prompt
-        │
-        ▼
-   Model Provider
-        │
-        ▼
-   Parse + Zod Validation
-        │
-        ├── Valid Output ──────► Structured API Response
-        │
-        └── Invalid Output
-                │
-                ▼
-          One Repair Attempt
-                │
-                ▼
-          Validate Again
-                │
-                ├── Valid ─────► Structured API Response
-                │
-                └── Invalid ───► Quarantine Event + Controlled Error
-       Structured Logs + Evaluation Suite
+                  User
+                   |
+                   v
+          React Frontend (Vite)
+                   |
+                   v
+          React Flow Editor
+                   |
+                   v
+          Workflow Configuration
+                   |
+                   v
+               Express API
+                   |
+                   v
+          Workflow Start Request
+                   |
+                   v
+          Inngest Background Job
+                   |
+                   v
+           Workflow Execution
+                   |
+                   v
+           Decision Node Logic
+                   |
+                   v
+             OpenRouter API
+                   |
+                   v
+           AI Decision Evaluation
+                   |
+             +-----+-----+
+             |           |
+             v           v
+            YES          NO
+             |           |
+             v           v
+        YES Branch    NO Branch
+             |           |
+             +-----+-----+
+                   |
+                   v
+          Continue Workflow
+                   |
+                   v
+           Execution Status
+              & Logs
+                   |
+                   v
+            React Frontend
 ```
-### 🌐 API Endpoint
 
-POST /triage
-Example request:
-```json
-{
-  "text": "I was charged twice for my monthly subscription."
-}
+The diagram represents the documented workflow concept. Exact internal implementation details depend on the project code.
+
+**### 🔄 Workflow Execution Flow**
+
+1. The user opens the FlowAI visual workflow editor.
+2. The user creates decision nodes and connects them using React Flow.
+3. AI prompts are configured for individual decision nodes.
+4. The workflow is prepared for execution.
+5. The frontend sends a workflow start request to the Express backend.
+6. The backend initiates background execution through Inngest.
+7. The workflow processes its decision nodes.
+8. OpenRouter evaluates the configured AI prompts.
+9. The AI decision determines the YES / NO branching path.
+10. The workflow continues through its connected nodes.
+11. Execution status and logs are made available for retrieval.
+12. Basic error handling and loop protection help manage execution problems.
+
+**### ✨ Key Features**
+
+- **Visual Workflow Editor:** Build workflows using an interactive React Flow editor
+- **Decision Nodes:** Add and manage decision nodes within a workflow
+- **Node Management:** Move, organize, and connect workflow nodes
+- **Editable AI Prompts:** Customize prompts used for AI decision evaluation
+- **YES / NO Branching:** Create conditional paths based on AI-generated decisions
+- **OpenRouter Integration:** Evaluate workflow decisions using an AI model through OpenRouter
+- **Background Execution:** Execute workflows using Inngest
+- **Execution Status:** Track the status of workflow executions
+- **Execution Logs:** Retrieve logs to understand workflow execution
+- **JSON Import & Export:** Import and export workflow configurations in JSON format
+- **Error Handling:** Handle basic workflow execution errors
+- **Loop Protection:** Include basic protection against unwanted workflow loops
+
+**### 🛠️ Week 07 Tech Stack**
+
+| Technology | Purpose |
+|------------|---------|
+| React | Frontend application |
+| Vite | Frontend development and build tooling |
+| @xyflow/react | Visual workflow editor and node connections |
+| Node.js | Backend JavaScript runtime |
+| Express.js | Backend API and request handling |
+| Inngest | Background workflow execution |
+| OpenAI SDK | AI client integration |
+| OpenRouter API | AI model access and decision evaluation |
+| dotenv | Environment variable configuration |
+| cors | Cross-origin resource sharing |
+| JSON | Workflow import and export format |
+| npm | Package and dependency management |
+| Git & GitHub | Version control and project documentation |
+
+**### 🚀 Getting Started**
+
+**#### Prerequisites**
+
+Install the following before running the project:
+
+- Node.js
+- npm
+- An OpenRouter API key
+- Git
+
+Verify your installed versions:
+
+```bash
+node --version
+npm --version
 ```
-Example response shape:
-```json
-{
-  "category": "billing",
-  "urgency": "high",
-  "confidence": 0.95,
-  "reason": "The customer reports a duplicate charge."
-}
-```
-The response is illustrative. Live model output may differ.
-### 📌 Output Schema
 
-| Field | Purpose |
-|---|---|
-| category | One of billing, bug, feature, or other |
-| urgency | One of low, normal, or high |
-| confidence | Number between 0 and 1 |
-| reason | Concise explanation for the classification |
-The output schema rejects unsupported enum values and additional output fields.
-### ⚙️ Configuration
+**#### 1. Backend Setup**
 
-The application uses environment variables for local configuration:
-```env
-PORT=3006
-LLM_STUB=1
-LLM_ENABLED=true
-OPENROUTER_API_KEY=
-LLM_MODEL=openrouter/free
-LLM_TIMEOUT_MS=30000
-```
-Execution modes:
-- Stub mode: LLM_STUB=1 returns a schema-valid stub response without a provider call.
-- Deterministic fallback: LLM_ENABLED=false disables model calls and uses fallback behavior.
-- Live provider mode: LLM_STUB=0 and LLM_ENABLED=true enable provider requests when credentials and model configuration are valid.
-The API key belongs in the local .env file. Never commit secrets to GitHub.
-### 🔁 Retry & Failure Handling
+Navigate to the backend directory:
 
-- Retries are controlled for rate limits, server errors, and transient connection failures.
-- Model output is parsed and validated before it can be returned as a successful result.
-- Invalid output receives one repair attempt.
-- If repaired output is still invalid, a quarantine event is recorded and a controlled error is raised.
-- Provider timeout and provider failure mappings are intended behavior and should be verified with automated or integration tests before being treated as confirmed runtime behavior.
-### 📊 Evaluation Results
-
-| Metric | Recorded Result |
-|---|---|
-| Prompt version | triage-v1 |
-| Recorded run | October 19, 2026 |
-| Cases passed | 8/8 |
-| Recorded pass rate | 100% |
-The recorded score applies only to that eight-case run. LLM responses can vary, and this result does not guarantee future accuracy.
-The evaluation runner writes evals/latest-report.json. A recorded sample is preserved in evals/sample-report.json.
-### 🧪 Run & Test Week 06
-
-From the repository root:
-```powershell
-cd .\week-06
+```bash
+cd backend
 npm install
-Copy-Item .env.example .env
+```
+
+Configure the backend `.env` file with your OpenRouter API key and required Inngest development settings.
+
+Start the backend server:
+
+```bash
 npm run dev
 ```
-Health check:
-```powershell
-Invoke-RestMethod -Uri "http://localhost:3006/health"
-```
-Run automated tests:
-```powershell
-npm test
-```
-With the API server running, execute the labelled evaluation suite:
-```powershell
-npm run eval
-```
-### 📝 Prompt Versioning & Logging
 
-The prompt is maintained in prompts/triage-v1.txt, making the prompt version explicit and easier to review.
-Structured JSONL logs can include prompt version, model identifier, token usage when available, request duration, repair count, and status. Raw customer messages and raw model output should not be logged, and generated logs should not be committed if they contain sensitive operational information.
-### 🔐 Security & Reliability Practices
+**#### 2. Frontend Setup**
 
-- Validate request data and model output against explicit schemas.
-- Restrict category and urgency to supported values.
-- Keep API keys in local environment configuration.
-- Avoid exposing raw model output to clients.
-- Avoid logging raw customer messages.
-- Bound output repair to one attempt.
-- Use synthetic messages for evaluation.
-- Treat a passing small evaluation suite as evidence for that run, not a guarantee of general model accuracy.
-### 📁 Week 06 Project Structure
+Open a separate terminal and navigate to the frontend directory:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Vite will display the local frontend URL in the terminal.
+
+**#### 3. Start Inngest Dev Server**
+
+Open another terminal and navigate to the backend directory:
+
+```bash
+cd backend
+npx inngest-cli dev -u http://localhost:3000/api/inngest
+```
+
+**#### 4. Open Inngest Dashboard**
+
+Once the Inngest development server is running, open:
 
 ```text
-week-06/
-├── JOB-CARD.md
-├── README.md
-├── evals/
-│   ├── cases.json
-│   ├── run.js
-│   ├── latest-report.json
-│   └── sample-report.json
-├── prompts/
-│   └── triage-v1.txt
-├── src/
-│   ├── index.js
-│   └── llm/
-│       ├── client.js
-│       ├── errors.js
-│       ├── logger.js
-│       ├── prompt.js
-│       ├── retry.js
-│       ├── schema.js
-│       └── service.js
-└── test/
-    └── triage.test.js
+http://localhost:8288
 ```
-### 🧠 Key Skills
 
-- LLM integration in backend services
-- Express API development
-- Zod schema validation
-- Fixed-enum classification
-- Prompt versioning
-- OpenRouter-compatible model integration
-- Stub and deterministic fallback modes
-- Controlled retries and bounded repair
-- Structured JSONL logging
-- Quarantine events and controlled errors
-- Automated tests with Node.js
-- Labelled evaluation and result reporting
-- Privacy-aware logging and secret management
-### 🎓 Week 06 Learning Outcomes
-This assignment extended my backend engineering practice into LLM-powered services, with a focus on structured output, validation, controlled failure handling, prompt versioning, evaluation, and responsible handling of customer data.
+The dashboard can be used to inspect the registered Inngest functions and background execution activity.
+
+**### 🌐 API Endpoints**
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/health` | Backend health check |
+| POST | `/api/workflow/start` | Starts workflow execution |
+| GET | `/api/executions/:id` | Retrieves execution status and logs |
+| Inngest endpoint | `/api/inngest` | Inngest function serving endpoint |
+
+**#### 1. Health Check**
+
+```http
+GET /api/health
+```
+
+Used to check backend service availability.
+
+**#### 2. Start Workflow Execution**
+
+```http
+POST /api/workflow/start
+```
+
+Starts a workflow execution through the backend. The endpoint is responsible for initiating the workflow execution process.
+
+**#### 3. Retrieve Execution Details**
+
+```http
+GET /api/executions/:id
+```
+
+Retrieves execution information using the execution ID. The endpoint provides access to execution status and logs.
+
+**#### 4. Inngest Function Endpoint**
+
+```text
+/api/inngest
+```
+
+Used by Inngest to communicate with the backend and serve registered background functions.
+
+**### 🧠 AI Decision Evaluation**
+
+FlowAI uses the OpenRouter API through the OpenAI SDK to evaluate AI-powered workflow decisions.
+
+The decision evaluation process allows workflow nodes to use editable prompts and determine which branch should execute.
+
+**#### Decision Branching**
+
+```text
+           Decision Node
+                 |
+                 v
+           AI Evaluation
+                 |
+           +-----+-----+
+           |           |
+           v           v
+          YES          NO
+           |           |
+           v           v
+       YES Branch   NO Branch
+```
+
+The decision result controls the next workflow path. This makes it possible to create conditional AI workflows instead of executing every connected node in the same sequence.
+
+**### ⚙️ Background Workflow Execution**
+
+FlowAI uses **Inngest** to handle background workflow execution.
+
+The backend exposes an Inngest serving endpoint, allowing Inngest to communicate with the application and execute registered workflow functions.
+
+The Inngest development server can be started locally using:
+
+```bash
+npx inngest-cli dev -u http://localhost:3000/api/inngest
+```
+
+Development dashboard:
+
+```text
+http://localhost:8288
+```
+
+Background execution helps separate workflow processing from the initial frontend request.
+
+**### 📊 Execution Monitoring**
+
+FlowAI provides execution status tracking and logs. These capabilities help users understand the progress of a workflow and inspect its execution activity.
+
+The backend exposes:
+
+```http
+GET /api/executions/:id
+```
+
+This endpoint retrieves execution status and logs for a particular execution ID.
+
+**### 📦 Workflow JSON Import & Export**
+
+FlowAI supports importing and exporting workflow configurations using JSON. This provides a way to preserve workflow configurations and reuse them without manually rebuilding the complete visual workflow.
+
+The JSON format is used for workflow configuration exchange.
+
+**### 🔁 Error Handling and Loop Protection**
+
+Workflow execution can encounter errors or unwanted looping behavior. FlowAI includes basic error handling and loop protection to help manage these situations.
+
+These safeguards are intended to improve workflow execution reliability and prevent basic execution issues. The exact retry policies, loop limits, and error mappings depend on the implementation.
+
+**### 🔐 Security and Configuration**
+
+The application uses environment variables to manage backend configuration and external API credentials.
+
+**#### Security Guidelines**
+
+- Store the OpenRouter API key in the backend `.env` file
+- Never commit API keys or sensitive credentials to GitHub
+- Keep external API credentials on the backend
+- Avoid exposing private API credentials in frontend code
+- Keep local environment files excluded from version control
+
+**#### Environment Configuration**
+
+Configure the backend environment file with:
+
+- OpenRouter API credentials
+- Required Inngest development settings
+- Other backend configuration required by the application
+
+The exact environment variable names depend on the backend implementation.
+
+**### 🎓 Learning Outcomes**
+
+By working on this project, I practiced:
+
+- Building visual workflow editors using React Flow
+- Creating and connecting interactive workflow nodes
+- Managing decision-based workflow structures
+- Implementing YES / NO branching logic
+- Integrating OpenRouter with the OpenAI SDK
+- Using AI prompts for decision evaluation
+- Building backend APIs using Express.js
+- Understanding background execution with Inngest
+- Connecting frontend workflow configuration with backend execution
+- Tracking workflow execution status and logs
+- Working with JSON-based workflow import and export
+- Implementing basic error handling
+- Understanding loop protection in workflow systems
+- Managing backend environment variables and API credentials
+
+**### 🚀 Project Highlights**
+
+This project brings together visual workflow design and AI-powered backend execution.
+
+Key areas covered:
+
+- Interactive workflow construction
+- AI-powered decision evaluation
+- Conditional workflow branching
+- Background workflow processing
+- Execution monitoring
+- JSON workflow configuration
+- Backend API integration
+- Basic execution reliability safeguards
+
+**### 🗺️ Week 07 Feature Checklist**
+
+| Feature | Included in Project Scope |
+|---------|---------------------------|
+| Visual workflow editor | Yes |
+| Add decision nodes | Yes |
+| Move workflow nodes | Yes |
+| Connect workflow nodes | Yes |
+| Editable AI prompts | Yes |
+| YES / NO branching | Yes |
+| OpenRouter integration | Yes |
+| AI decision evaluation | Yes |
+| Inngest background execution | Yes |
+| Execution status tracking | Yes |
+| Execution logs | Yes |
+| Workflow JSON import | Yes |
+| Workflow JSON export | Yes |
+| Basic error handling | Yes |
+| Loop protection | Yes |
+
+**### Key Skills**
+
+- React
+- Vite
+- React Flow / @xyflow/react
+- Visual Workflow Design
+- Node Management
+- AI Decision Evaluation
+- OpenRouter API
+- OpenAI SDK
+- Inngest Background Execution
+- Express.js API Development
+- Conditional Branching
+- JSON Import & Export
+- Execution Monitoring
+- Error Handling
+- Loop Protection
+- Environment Configuration
+
+**### 📝 Implementation Notes**
+
+The documented workflow describes the project scope and intended execution flow. Exact internal implementation details, environment variable names, retry policies, loop limits, and error mappings depend on the project code.
+
+
+
+
+
+
 # 🚀 Repository Highlights
-
 - RESTful API Development
 - Express.js Backend
 - CRUD Operations
@@ -1256,18 +1496,10 @@ This assignment extended my backend engineering practice into LLM-powered servic
 - Multi-Week Architecture
 - Database Persistence Testing
 - Authentication Testing
-- Responsible Web Scraping
-- HTML Parsing & Local Caching
-- Data Normalization & Schema Validation
-- LLM API Integration
-- Prompt Versioning
-- Controlled LLM Retries & Output Repair
-- Structured JSONL Logging
-- Automated Evaluation & Testing
 - GitHub Best Practices
 ---
-# 🎯 Learning Goals
 
+# 🎯 Learning Goals
 During this internship I aim to:
 - Build Production Ready APIs
 - Learn Backend Engineering
@@ -1282,14 +1514,10 @@ During this internship I aim to:
 - Implement Secure Authentication
 - Build Protected APIs
 - Work with JWT Authentication
-- Build Responsible Data Pipelines
-- Integrate LLMs into Backend APIs
-- Validate Structured AI Outputs
-- Evaluate LLM Behavior with Labelled Cases
 - Become an AI Backend Engineer
+
 ---
 # 🗺️ Internship Roadmap
-
 ```text
 ✅ Week 01
       │
@@ -1312,42 +1540,48 @@ During this internship I aim to:
 ✅ Week 06
       │
       ▼
+✅ Week 07
+      │
+      ▼
+⏳ Week 08
+      │
+      ▼
 🎯 Internship Complete
+
 ```
 ---
+
 # 📝 Notes
-
 ### `server.js`
-
 Each week's `server.js` is a standalone implementation and can be executed independently.
 ### `routes.js`
-
 Each week's `routes.js` exports an Express Router that is mounted by the root `server.js`.
 This modular approach allows multiple internship assignments to run under a single Express application while keeping every assignment independently executable.
 ### Week 03A Architecture
-
 Week 03A extends the backend architecture by introducing a PostgreSQL repository and service layer while using Docker Compose to run the API and database together.
 ### Week 04 Authentication
-
 Week 04 extends the backend learning journey by introducing authentication and API security using Supabase Auth, JWT Bearer tokens, reusable Express middleware, protected routes, and Swagger authentication testing.
 ### Week 05 Web Scraping
-
 Week 05 extends the backend learning journey into responsible web data collection by introducing HTML parsing, URL discovery, local caching, data normalization, schema validation, failure isolation, idempotent processing, and operational run reporting.
-### Week 06 LLM Triage API
 
-Week 06 extends the backend learning journey into LLM-powered services with schema-validated support classification, prompt versioning, controlled retries, bounded output repair, privacy-aware structured logs, and labelled evaluation.
+### Week 07 FlowAI Visual AI Workflow Builder
+
+Week 07 extends the backend learning journey into visual AI workflow development by introducing React Flow, AI-powered decision evaluation through OpenRouter, YES / NO conditional branching, background execution with Inngest, workflow JSON import and export, and execution monitoring.
+
+
 ---
-# 🚀 Future Plans
 
+# 🚀 Future Plans
 - MongoDB Integration
 - Unit Testing
 - CI/CD Pipeline
 - Advanced Data Pipelines
 - Advanced Backend Projects
 - Production Deployment Improvements
----
-# 👨‍💻 Author
 
+---
+
+# 👨‍💻 Author
 **Mukim Shah**
 Backend AI Engineering Intern
 FlyRank AI
@@ -1355,6 +1589,7 @@ GitHub:
 https://github.com/mukim-shah
 LinkedIn:
 https://www.linkedin.com/in/mukim-shah-377825334/
+
 ---
 # ⭐ Repository Status
 
