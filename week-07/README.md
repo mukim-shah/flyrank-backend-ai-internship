@@ -2,7 +2,14 @@
 
 **FlyRank AI Internship · Backend AI Engineering Track**
 
-<p align="center">   \<img src="[https://img.shields.io/badge/React-Frontend-61DAFB?style=for-the-badge&logo=react&logoColor=black](https://img.shields.io/badge/React-Frontend-61DAFB?style=for-the-badge\&logo=react\&logoColor=black)" alt="React">   \<img src="[https://img.shields.io/badge/Node.js-Backend-5FA04E?style=for-the-badge&logo=node.js&logoColor=white](https://img.shields.io/badge/Node.js-Backend-5FA04E?style=for-the-badge\&logo=node.js\&logoColor=white)" alt="Node.js">   \<img src="[https://img.shields.io/badge/Express.js-API-000000?style=for-the-badge&logo=express&logoColor=white](https://img.shields.io/badge/Express.js-API-000000?style=for-the-badge\&logo=express\&logoColor=white)" alt="Express.js">   \<img src="[https://img.shields.io/badge/React_Flow-Visual_Editor-FF0072?style=for-the-badge](https://img.shields.io/badge/React_Flow-Visual_Editor-FF0072?style=for-the-badge)" alt="React Flow">   \<img src="[https://img.shields.io/badge/OpenRouter-AI_Integration-6366F1?style=for-the-badge](https://img.shields.io/badge/OpenRouter-AI_Integration-6366F1?style=for-the-badge)" alt="OpenRouter">   \<img src="[https://img.shields.io/badge/Inngest-Background_Workflows-7C3AED?style=for-the-badge](https://img.shields.io/badge/Inngest-Background_Workflows-7C3AED?style=for-the-badge)" alt="Inngest"> \</p>
+<p align="center">
+  <img src="https://img.shields.io/badge/React-Frontend-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React" />
+  <img src="https://img.shields.io/badge/Node.js-Backend-5FA04E?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" />
+  <img src="https://img.shields.io/badge/Express.js-API-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express.js" />
+  <img src="https://img.shields.io/badge/React_Flow-Visual_Editor-FF0072?style=for-the-badge" alt="React Flow" />
+  <img src="https://img.shields.io/badge/OpenRouter-AI_Integration-6366F1?style=for-the-badge" alt="OpenRouter" />
+  <img src="https://img.shields.io/badge/Inngest-Background_Workflows-7C3AED?style=for-the-badge" alt="Inngest" />
+</p>
 
 ---
 
@@ -462,9 +469,9 @@ Backend AI Developer · Automation Specialist · Full-Stack Developer
 ---
 
 <p align="center">
-&#x20; \<strong>FlyRank AI — Backend AI Engineering Internship\</strong>
-&#x20; \<br>
-&#x20; Week 07 · FlowAI Visual AI Workflow Builder
-&#x20; \<br>
-&#x20; Built with React, Express.js, OpenRouter, and Inngest
-\</p>
+  <strong>FlyRank AI — Backend AI Engineering Internship</strong>
+  <br>
+  Week 07 · FlowAI Visual AI Workflow Builder
+  <br>
+  Built with React, Express.js, OpenRouter, and Inngest
+</p>
